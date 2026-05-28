@@ -1,4 +1,4 @@
-<!DOCTYPEDOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -26,62 +26,109 @@
         h1, h2, h3, .font-heading {
             font-family: var(--font-heading);
         }
+
+        /* Modern Architecture-Studio Custom Cursor Elements */
+        @media (hover: hover) {
+            html, body {
+                cursor: none;
+            }
+            a, button, input, submit, [role="button"] {
+                cursor: none;
+            }
+        }
+
+        #custom-pointer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background-color: #ffffff;
+            mix-blend-mode: difference;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease;
+            display: none;
+        }
+
+        #custom-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: transform 0.08s ease-out, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+            display: none;
+        }
+
+        @media (hover: hover) {
+            #custom-pointer, #custom-ring {
+                display: block;
+            }
+        }
     </style>
 </head>
-<body class="bg-white text-black antialiased">
+<body class="bg-white text-black antialiased relative">
 
-    <section id="home" class="min-h-screen flex flex-col justify-between px-6 py-12 md:px-12 lg:px-24 bg-zinc-50">
-        <div class="flex justify-between items-center w-full">
-            <span class="text-xs uppercase tracking-widest font-medium text-zinc-500">Portfolio / 2026</span>
-            <span class="text-xs uppercase tracking-widest font-medium text-zinc-500">Available for Collaborations</span>
+    <div id="custom-pointer"></div>
+    <div id="custom-ring"></div>
+
+
+    <section id="home" class="min-h-screen flex flex-col justify-between p-8 md:p-16 bg-white select-none relative">
+        
+        <div class="flex justify-between items-start w-full text-[10px] md:text-xs tracking-[0.25em] uppercase text-zinc-900 font-sans">
+            <div class="flex items-start space-x-4">
+                <div class="w-[1px] h-10 bg-black"></div>
+                <div class="space-y-0.5">
+                    <div class="text-zinc-400 font-light">Selected Works</div>
+                    <div class="font-bold text-black tracking-[0.2em]">Academic Collection</div>
+                </div>
+            </div>
+            <div class="text-right font-light text-zinc-400 space-y-0.5">
+                <div class="text-zinc-900 font-normal">Singapore Polytechnic</div>
+                <div>Dept of Architecture</div>
+            </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 my-auto items-center">
-            <div class="lg:col-span-7 space-y-6">
-                <span class="inline-block text-xs uppercase tracking-widest font-semibold bg-black text-white px-3 py-1 rounded-full">Architectural Designer</span>
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-zinc-900 leading-none">
+        <div class="my-auto pt-16">
+            <h1 class="text-[13vw] md:text-[10vw] font-light tracking-[0.16em] text-black leading-none uppercase font-heading">
+                Portfolio
+            </h1>
+            <div class="flex items-center space-x-6 mt-8">
+                <div class="w-20 h-[1px] bg-zinc-300"></div>
+                <div class="text-lg md:text-2xl font-light tracking-[0.45em] uppercase text-zinc-900 font-heading">
                     Leo Aung
-                </h1>
-                <p class="text-xl md:text-2xl font-light text-zinc-600 max-w-xl leading-relaxed">
-                    Building structural depth, spatial balance, and solving architectural design problems with clear artistic purpose.
-                </p>
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#projects" class="bg-black hover:bg-zinc-800 text-white px-6 py-3 rounded-full text-sm tracking-wider uppercase font-medium transition-all duration-300">
-                        View Projects
-                    </a>
-                    <a href="#connect" class="border border-zinc-300 hover:border-black text-zinc-700 hover:text-black px-6 py-3 rounded-full text-sm tracking-wider uppercase font-medium transition-all duration-300">
-                        Get In Touch
-                    </a>
                 </div>
             </div>
             
-            <div class="lg:col-span-5">
-                <div class="aspect-4/5 w-full bg-zinc-200 rounded-3xl overflow-hidden relative group">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Architectural Form" class="w-full h-full object-cover grayscale contrast-115 transition-transform duration-700 group-hover:scale-105" />
-                    <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-xl">
-                        <p class="text-xs font-mono uppercase tracking-wider text-zinc-500">Latest Concept Study</p>
-                        <p class="text-sm font-medium text-zinc-900">The Minimalist Pavilion (2026)</p>
-                    </div>
-                </div>
+            <div class="text-[10px] font-mono text-zinc-300 mt-8 tracking-wider">
+                [ Background Image: images/cover.jpg ]
             </div>
         </div>
 
-        <div class="w-full text-left">
-            <span class="text-xs font-mono text-zinc-400">Scroll down to explore</span>
+        <div class="w-full text-left text-[10px] font-mono tracking-[0.3em] text-zinc-400 uppercase">
+            Explore / Scroll Down
         </div>
     </section>
 
 
-    <nav class="w-full bg-white py-5 px-6 md:px-12 lg:px-24 sticky top-0 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <nav class="w-full bg-white py-6 px-8 md:px-16 sticky top-0 z-50">
+        <div class="w-full flex flex-col md:flex-row justify-between items-center gap-6">
             
-            <div class="flex items-center space-x-2">
-                <span class="font-heading font-bold text-lg tracking-wider uppercase">Leo Aung</span>
-                <span class="text-zinc-300 text-sm">|</span>
-                <span class="text-zinc-500 text-xs tracking-widest uppercase font-light hidden sm:inline-block">Architecture Portfolio</span>
+            <div class="flex items-center space-x-3">
+                <span class="font-heading font-semibold text-sm tracking-[0.2em] uppercase">Leo Aung</span>
+                <span class="text-zinc-200 text-xs">|</span>
+                <span class="text-zinc-400 text-[10px] tracking-[0.25em] uppercase font-light">Architecture Portfolio</span>
             </div>
 
-            <div class="hidden md:flex items-center space-x-8 lg:space-x-12 text-xs font-mono tracking-wider text-zinc-500">
+            <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 text-[11px] font-mono tracking-widest text-zinc-400">
                 <a href="#home" class="hover:text-black transition-colors duration-200">00 / HOME</a>
                 <a href="#projects" class="hover:text-black transition-colors duration-200">01 / PROJECTS</a>
                 <a href="#about" class="hover:text-black transition-colors duration-200">02 / ABOUT</a>
@@ -90,7 +137,7 @@
             </div>
 
             <div>
-                <a href="#" class="bg-black hover:bg-zinc-800 text-white text-xs tracking-widest font-mono uppercase px-5 py-2.5 rounded-full transition-all duration-300 inline-block">
+                <a href="#" class="bg-black hover:bg-zinc-800 text-white text-[10px] tracking-widest font-mono uppercase px-6 py-2.5 rounded-full transition-all duration-300 inline-block">
                     Download CV
                 </a>
             </div>
@@ -98,48 +145,48 @@
     </nav>
 
 
-    <section id="projects" class="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto space-y-16">
+    <section id="projects" class="py-28 px-8 md:px-16 max-w-7xl mx-auto space-y-20">
         <div class="space-y-4">
-            <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest block">Selected works</span>
-            <h2 class="text-3xl md:text-5xl font-light tracking-tight">Project Designs & Spatial Concepts</h2>
+            <span class="text-xs font-mono text-zinc-400 uppercase tracking-[0.3em] block">Selected works</span>
+            <h2 class="text-3xl md:text-5xl font-light tracking-tight font-heading">Project Designs & Spatial Concepts</h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             
-            <div class="group space-y-4">
-                <div class="aspect-3/2 w-full bg-zinc-100 rounded-2xl overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Project Design 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103" />
+            <div class="group space-y-5 cursor-none">
+                <div class="aspect-3/2 w-full bg-zinc-100 rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Project Design 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102" />
                 </div>
-                <div class="flex justify-between items-start pt-2">
-                    <div>
-                        <h3 class="text-lg font-medium group-hover:text-zinc-600 transition-colors">Residential Minimalist Pavilion</h3>
-                        <p class="text-sm text-zinc-500">Concept / Sustainable Residential Study</p>
+                <div class="flex justify-between items-start pt-1">
+                    <div class="space-y-1">
+                        <h3 class="text-base font-medium text-zinc-900 group-hover:text-zinc-600 transition-colors font-heading">Residential Minimalist Pavilion</h3>
+                        <p class="text-xs text-zinc-400">Concept / Sustainable Residential Study</p>
                     </div>
                     <span class="text-xs font-mono text-zinc-400">2025</span>
                 </div>
             </div>
 
-            <div class="group space-y-4">
-                <div class="aspect-3/2 w-full bg-zinc-100 rounded-2xl overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Project Design 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103" />
+            <div class="group space-y-5 cursor-none">
+                <div class="aspect-3/2 w-full bg-zinc-100 rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Project Design 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102" />
                 </div>
-                <div class="flex justify-between items-start pt-2">
-                    <div>
-                        <h3 class="text-lg font-medium group-hover:text-zinc-600 transition-colors">Urban Cultural Complex</h3>
-                        <p class="text-sm text-zinc-500">Structural / Public Spaces Concept</p>
+                <div class="flex justify-between items-start pt-1">
+                    <div class="space-y-1">
+                        <h3 class="text-base font-medium text-zinc-900 group-hover:text-zinc-600 transition-colors font-heading">Urban Cultural Complex</h3>
+                        <p class="text-xs text-zinc-400">Structural / Public Spaces Concept</p>
                     </div>
                     <span class="text-xs font-mono text-zinc-400">2025</span>
                 </div>
             </div>
 
-            <div class="group space-y-4">
-                <div class="aspect-3/2 w-full bg-zinc-100 rounded-2xl overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Project Design 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103" />
+            <div class="group space-y-5 cursor-none">
+                <div class="aspect-3/2 w-full bg-zinc-100 rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Project Design 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102" />
                 </div>
-                <div class="flex justify-between items-start pt-2">
-                    <div>
-                        <h3 class="text-lg font-medium group-hover:text-zinc-600 transition-colors">Brutalist Monolith Study</h3>
-                        <p class="text-sm text-zinc-500">Experimental Material & Light Exploration</p>
+                <div class="flex justify-between items-start pt-1">
+                    <div class="space-y-1">
+                        <h3 class="text-base font-medium text-zinc-900 group-hover:text-zinc-600 transition-colors font-heading">Brutalist Monolith Study</h3>
+                        <p class="text-xs text-zinc-400">Experimental Material & Light Exploration</p>
                     </div>
                     <span class="text-xs font-mono text-zinc-400">2026</span>
                 </div>
@@ -149,14 +196,14 @@
     </section>
 
 
-    <section id="about" class="py-24 bg-zinc-50 px-6 md:px-12 lg:px-24">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section id="about" class="py-28 bg-zinc-50 px-8 md:px-16">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             <div class="lg:col-span-7 space-y-6">
-                <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest block">Background</span>
-                <h2 class="text-3xl md:text-5xl font-light tracking-tight text-zinc-900">About Me</h2>
+                <span class="text-xs font-mono text-zinc-400 uppercase tracking-[0.3em] block">Background</span>
+                <h2 class="text-3xl md:text-5xl font-light tracking-tight text-zinc-900 font-heading">About Me</h2>
                 
-                <div class="space-y-4 text-zinc-600 font-light leading-relaxed text-base md:text-lg">
+                <div class="space-y-5 text-zinc-600 font-light leading-relaxed text-base md:text-lg">
                     <p>
                         I am an architectural designer driven by structural clarity and intentional aesthetics. My academic path is grounded in analytical thinking and rigorous problem-solving, focusing heavily on how form, light, material, and human experience intersect inside designed environments.
                     </p>
@@ -166,20 +213,20 @@
                 </div>
             </div>
 
-            <div class="lg:col-span-5 bg-white p-8 rounded-3xl border border-zinc-100 space-y-6">
-                <h3 class="text-xs font-mono font-bold tracking-widest uppercase text-zinc-400">Academic & Core Focus</h3>
+            <div class="lg:col-span-5 bg-white p-8 md:p-10 rounded-2xl border border-zinc-100 space-y-6">
+                <h3 class="text-xs font-mono font-bold tracking-[0.2em] uppercase text-zinc-400">Academic & Core Focus</h3>
                 
-                <ul class="space-y-4 divide-y divide-zinc-100">
+                <ul class="space-y-5 divide-y divide-zinc-100">
                     <li class="pt-2">
-                        <span class="block text-xs text-zinc-400 font-mono">Specialized Curriculums</span>
+                        <span class="block text-xs text-zinc-400 font-mono tracking-wider mb-1">Specialized Curriculums</span>
                         <span class="text-sm font-medium text-zinc-800">Advanced Systems Thinking, Architecture & Environmental Physics</span>
                     </li>
                     <li class="pt-4">
-                        <span class="block text-xs text-zinc-400 font-mono">Design Proficiencies</span>
+                        <span class="block text-xs text-zinc-400 font-mono tracking-wider mb-1">Design Proficiencies</span>
                         <span class="text-sm font-medium text-zinc-800">3D Spatial Modeling, Drafting Protocols, Sustainable Optimization</span>
                     </li>
                     <li class="pt-4">
-                        <span class="block text-xs text-zinc-400 font-mono">Core Focus Areas</span>
+                        <span class="block text-xs text-zinc-400 font-mono tracking-wider mb-1">Core Focus Areas</span>
                         <span class="text-sm font-medium text-zinc-800">Computational Architecture, Geometric Prototyping, Ergonomic Design</span>
                     </li>
                 </ul>
@@ -189,41 +236,41 @@
     </section>
 
 
-    <section id="experience" class="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto space-y-12">
+    <section id="experience" class="py-28 px-8 md:px-16 max-w-7xl mx-auto space-y-16">
         <div class="space-y-4">
-            <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest block">Timeline</span>
-            <h2 class="text-3xl md:text-5xl font-light tracking-tight">Experience</h2>
+            <span class="text-xs font-mono text-zinc-400 uppercase tracking-[0.3em] block">Timeline</span>
+            <h2 class="text-3xl md:text-5xl font-light tracking-tight font-heading">Experience</h2>
         </div>
 
         <div class="space-y-8 max-w-4xl">
             
-            <div class="grid grid-cols-1 md:grid-cols-4 pt-6 border-t border-zinc-100 gap-2 md:gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 pt-8 border-t border-zinc-100 gap-4 md:gap-8">
                 <span class="text-sm font-mono text-zinc-400">2025 - Present</span>
                 <div class="md:col-span-3 space-y-2">
-                    <h3 class="text-lg font-medium">Design Assistant / Architectural Mentor</h3>
-                    <p class="text-sm text-zinc-500 font-medium">Collaborative Architectural Cohorts</p>
+                    <h3 class="text-lg font-medium text-zinc-900 font-heading">Design Assistant / Architectural Mentor</h3>
+                    <p class="text-xs text-zinc-400 uppercase tracking-wider font-mono">Collaborative Architectural Cohorts</p>
                     <p class="text-sm text-zinc-600 font-light leading-relaxed">
                         Leading peer-guided design groups, delivering structured instruction on blueprint strategies, spatial dynamics, and mentorship in structural formulation principles.
                     </p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 pt-6 border-t border-zinc-100 gap-2 md:gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 pt-8 border-t border-zinc-100 gap-4 md:gap-8">
                 <span class="text-sm font-mono text-zinc-400">2024 - 2025</span>
                 <div class="md:col-span-3 space-y-2">
-                    <h3 class="text-lg font-medium">Independent Space Planning Consultant</h3>
-                    <p class="text-sm text-zinc-500 font-medium">Freelance Blueprint Architecture</p>
+                    <h3 class="text-lg font-medium text-zinc-900 font-heading">Independent Space Planning Consultant</h3>
+                    <p class="text-xs text-zinc-400 uppercase tracking-wider font-mono">Freelance Blueprint Architecture</p>
                     <p class="text-sm text-zinc-600 font-light leading-relaxed">
                         Developed practical spatial layout solutions, structural communication schemes, and drafted preliminary design renders for independent functional builds.
                     </p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 pt-6 border-t border-zinc-100 gap-2 md:gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 pt-8 border-t border-zinc-100 gap-4 md:gap-8">
                 <span class="text-sm font-mono text-zinc-400">2024</span>
                 <div class="md:col-span-3 space-y-2">
-                    <h3 class="text-lg font-medium">Local Design & Systems Representative</h3>
-                    <p class="text-sm text-zinc-500 font-medium">Regional Structural Showcase Forums</p>
+                    <h3 class="text-lg font-medium text-zinc-900 font-heading">Local Design & Systems Representative</h3>
+                    <p class="text-xs text-zinc-400 uppercase tracking-wider font-mono">Regional Structural Showcase Forums</p>
                     <p class="text-sm text-zinc-600 font-light leading-relaxed">
                         Promoted technical architecture participation locally, inspiring students to engage with structural workflows and modern computational rendering platforms.
                     </p>
@@ -234,32 +281,76 @@
     </section>
 
 
-    <section id="connect" class="py-24 bg-zinc-950 text-white px-6 md:px-12 lg:px-24 text-center rounded-t-[2.5rem]">
+    <section id="connect" class="py-24 bg-zinc-950 text-white px-8 md:px-16 text-center rounded-t-[2rem]">
         <div class="max-w-3xl mx-auto space-y-8">
-            <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest block">Next Steps</span>
-            <h2 class="text-4xl md:text-6xl font-light tracking-tight">Let's Connect</h2>
+            <span class="text-xs font-mono text-zinc-500 uppercase tracking-[0.3em] block">Next Steps</span>
+            <h2 class="text-4xl md:text-6xl font-light tracking-tight font-heading">Let's Connect</h2>
             <p class="text-zinc-400 font-light text-base md:text-lg max-w-xl mx-auto leading-relaxed">
                 I am actively open to ongoing conversations with admissions boards, design studios, educators, and innovative technical collaborators.
             </p>
             
             <div class="flex flex-wrap justify-center gap-4 pt-4">
-                <a href="mailto:your-email@domain.com" class="bg-white text-black hover:bg-zinc-200 text-sm tracking-wider uppercase font-medium px-6 py-3 rounded-full transition-all duration-300">
+                <a href="mailto:your-email@domain.com" class="bg-white text-black hover:bg-zinc-200 text-xs tracking-widest font-mono uppercase px-6 py-3 rounded-full transition-all duration-300">
                     Email Me
                 </a>
-                <a href="#" target="_blank" class="border border-zinc-700 hover:border-white text-zinc-300 hover:text-white text-sm tracking-wider uppercase font-medium px-6 py-3 rounded-full transition-all duration-300">
+                <a href="#" target="_blank" class="border border-zinc-800 hover:border-zinc-500 text-zinc-400 hover:text-white text-xs tracking-widest font-mono uppercase px-6 py-3 rounded-full transition-all duration-300">
                     LinkedIn
                 </a>
-                <a href="#" target="_blank" class="border border-zinc-700 hover:border-white text-zinc-300 hover:text-white text-sm tracking-wider uppercase font-medium px-6 py-3 rounded-full transition-all duration-300">
+                <a href="#" target="_blank" class="border border-zinc-800 hover:border-zinc-500 text-zinc-400 hover:text-white text-xs tracking-widest font-mono uppercase px-6 py-3 rounded-full transition-all duration-300">
                     GitHub
                 </a>
             </div>
 
-            <div class="pt-16 border-t border-zinc-900 flex flex-col sm:flex-row justify-between text-xs text-zinc-600 font-mono gap-4">
+            <div class="pt-16 border-t border-zinc-900 flex flex-col sm:flex-row justify-between text-[10px] text-zinc-600 font-mono tracking-widest">
                 <span>Designed by Leo Aung</span>
                 <span>&copy; 2026 Portfolio / All Rights Reserved</span>
             </div>
         </div>
     </section>
+
+
+    <script>
+        const pointer = document.getElementById('custom-pointer');
+        const ring = document.getElementById('custom-ring');
+
+        let posX = 0, posY = 0;
+        let mouseX = 0, mouseY = 0;
+
+        // Smooth follower animation loop
+        setInterval(() => {
+            posX += (mouseX - posX) * 0.18;
+            posY += (mouseY - posY) * 0.18;
+            
+            ring.style.left = posX + 'px';
+            ring.style.top = posY + 'px';
+        }, 16);
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            pointer.style.left = mouseX + 'px';
+            pointer.style.top = mouseY + 'px';
+        });
+
+        // Hover expansions for links and actionable UI items
+        document.querySelectorAll('a, button, [role="button"]').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                pointer.style.width = '20px';
+                pointer.style.height = '20px';
+                ring.style.width = '55px';
+                ring.style.height = '55px';
+                ring.style.borderColor = 'rgba(0,0,0,0.4)';
+            });
+            element.addEventListener('mouseleave', () => {
+                pointer.style.width = '8px';
+                pointer.style.height = '8px';
+                ring.style.width = '40px';
+                ring.style.height = '40px';
+                ring.style.borderColor = 'rgba(0,0,0,0.15)';
+            });
+        });
+    </script>
 
 </body>
 </html>
