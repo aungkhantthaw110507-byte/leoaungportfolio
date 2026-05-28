@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leo Aung | Architecture Portfolio</title>
-
+    <title>Aung Khant Thaw_Leo | Architecture Portfolio</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
+    
     <style type="text/tailwindcss">
         @theme {
             --font-sans: 'Inter', sans-serif;
@@ -23,334 +23,180 @@
             color: #000000;
         }
 
-        h1, h2, h3, .font-heading {
-            font-family: var(--font-heading);
-        }
-
-        /* Modern Architecture-Studio Custom Cursor Elements */
-        @media (hover: hover) {
-            html, body {
-                cursor: none;
-            }
-            a, button, input, submit, [role="button"] {
-                cursor: none;
-            }
-        }
-
-        #custom-pointer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 8px;
-            height: 8px;
-            background-color: #ffffff;
-            mix-blend-mode: difference;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s ease, height 0.3s ease;
-            display: none;
-        }
-
-        #custom-ring {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(0, 0, 0, 0.15);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            transform: translate(-50%, -50%);
-            transition: transform 0.08s ease-out, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
-            display: none;
-        }
-
-        @media (hover: hover) {
-            #custom-pointer, #custom-ring {
-                display: block;
-            }
+        /* Custom AutoCAD Crosshair Cursor */
+        html, body, a, button, select, input {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><line x1='16' y1='0' x2='16' y2='32' stroke='black' stroke-width='1'/><line x1='0' y1='16' x2='32' y2='16' stroke='black' stroke-width='1'/><circle cx='16' cy='16' r='2' fill='none' stroke='black' stroke-width='1'/></svg>") 16 16, crosshair !important;
         }
     </style>
 </head>
-<body class="bg-white text-black antialiased relative">
+<body class="bg-white text-black selection:bg-neutral-200">
 
-    <div id="custom-pointer"></div>
-    <div id="custom-ring"></div>
-
-
-    <section id="home" class="min-h-screen flex flex-col justify-between p-8 md:p-16 bg-white select-none relative">
-        
-        <div class="flex justify-between items-start w-full text-[10px] md:text-xs tracking-[0.25em] uppercase text-zinc-900 font-sans">
-            <div class="flex items-start space-x-4">
-                <div class="w-[1px] h-10 bg-black"></div>
-                <div class="space-y-0.5">
-                    <div class="text-zinc-400 font-light">Selected Works</div>
-                    <div class="font-bold text-black tracking-[0.2em]">Academic Collection</div>
-                </div>
+    <header class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-neutral-100">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="font-heading font-medium tracking-wide text-lg">
+                AUNG KHANT THAW<span class="text-neutral-400 font-light font-sans ml-1 text-sm">_LEO</span>
             </div>
-            <div class="text-right font-light text-zinc-400 space-y-0.5">
-                <div class="text-zinc-900 font-normal">Singapore Polytechnic</div>
-                <div>Dept of Architecture</div>
-            </div>
+            <nav class="hidden md:flex items-center gap-8 text-xs font-medium tracking-widest text-neutral-500">
+                <a href="#home" class="hover:text-black transition-colors">00 / HOME</a>
+                <a href="#projects" class="hover:text-black transition-colors">01 / WORKS</a>
+                <a href="#experience" class="hover:text-black transition-colors">02 / EXPERIENCE</a>
+                <a href="#connect" class="hover:text-black transition-colors">03 / CONNECT</a>
+            </nav>
         </div>
+    </header>
 
-        <div class="my-auto pt-16">
-            <h1 class="text-[13vw] md:text-[10vw] font-light tracking-[0.16em] text-black leading-none uppercase font-heading">
+    <main class="max-w-5xl mx-auto px-6 pt-32">
+
+        <section id="home" class="min-h-[70vh] flex flex-col justify-center border-b border-neutral-100 pb-20">
+            <div class="text-neutral-400 text-xs tracking-widest uppercase mb-6 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-black inline-block"></span> Selected Works
+            </div>
+            <h1 class="font-heading font-extralight text-7xl md:text-9xl tracking-tight leading-none mb-4 uppercase">
                 Portfolio
             </h1>
-            <div class="flex items-center space-x-6 mt-8">
-                <div class="w-20 h-[1px] bg-zinc-300"></div>
-                <div class="text-lg md:text-2xl font-light tracking-[0.45em] uppercase text-zinc-900 font-heading">
-                    Leo Aung
-                </div>
-            </div>
-            
-            <div class="text-[10px] font-mono text-zinc-300 mt-8 tracking-wider">
-                [ Background Image: images/cover.jpg ]
-            </div>
-        </div>
+            <div class="w-12 h-[1px] bg-black mb-6"></div>
+            <h2 class="font-heading font-light text-xl md:text-2xl tracking-widest uppercase text-neutral-7xl">
+                Aung Khant Thaw_Leo
+            </h2>
+        </section>
 
-        <div class="w-full text-left text-[10px] font-mono tracking-[0.3em] text-zinc-400 uppercase">
-            Explore / Scroll Down
-        </div>
-    </section>
-
-
-    <nav class="w-full bg-white py-6 px-8 md:px-16 sticky top-0 z-50">
-        <div class="w-full flex flex-col md:flex-row justify-between items-center gap-6">
-            
-            <div class="flex items-center space-x-3">
-                <span class="font-heading font-semibold text-sm tracking-[0.2em] uppercase">Leo Aung</span>
-                <span class="text-zinc-200 text-xs">|</span>
-                <span class="text-zinc-400 text-[10px] tracking-[0.25em] uppercase font-light">Architecture Portfolio</span>
+        <section id="projects" class="py-24 border-b border-neutral-100">
+            <div class="mb-16">
+                <p class="text-xs font-mono text-neutral-400 uppercase tracking-widest mb-2">Selected Works</p>
+                <h3 class="font-heading text-3xl font-light tracking-tight">Project Designs & Spatial Concepts</h3>
             </div>
 
-            <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 text-[11px] font-mono tracking-widest text-zinc-400">
-                <a href="#home" class="hover:text-black transition-colors duration-200">00 / HOME</a>
-                <a href="#projects" class="hover:text-black transition-colors duration-200">01 / PROJECTS</a>
-                <a href="#about" class="hover:text-black transition-colors duration-200">02 / ABOUT</a>
-                <a href="#experience" class="hover:text-black transition-colors duration-200">03 / EXPERIENCE</a>
-                <a href="#connect" class="hover:text-black transition-colors duration-200">04 / CONNECT</a>
-            </div>
-
-            <div>
-                <a href="#" class="bg-black hover:bg-zinc-800 text-white text-[10px] tracking-widest font-mono uppercase px-6 py-2.5 rounded-full transition-all duration-300 inline-block">
-                    Download CV
-                </a>
-            </div>
-        </div>
-    </nav>
-
-
-    <section id="projects" class="py-28 px-8 md:px-16 max-w-7xl mx-auto space-y-20">
-        <div class="space-y-4">
-            <span class="text-xs font-mono text-zinc-400 uppercase tracking-[0.3em] block">Selected works</span>
-            <h2 class="text-3xl md:text-5xl font-light tracking-tight font-heading">Project Designs & Spatial Concepts</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            
-            <div class="group space-y-5 cursor-none">
-                <div class="aspect-3/2 w-full bg-zinc-100 rounded-xl overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Project Design 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102" />
-                </div>
-                <div class="flex justify-between items-start pt-1">
-                    <div class="space-y-1">
-                        <h3 class="text-base font-medium text-zinc-900 group-hover:text-zinc-600 transition-colors font-heading">Residential Minimalist Pavilion</h3>
-                        <p class="text-xs text-zinc-400">Concept / Sustainable Residential Study</p>
-                    </div>
-                    <span class="text-xs font-mono text-zinc-400">2025</span>
-                </div>
-            </div>
-
-            <div class="group space-y-5 cursor-none">
-                <div class="aspect-3/2 w-full bg-zinc-100 rounded-xl overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Project Design 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102" />
-                </div>
-                <div class="flex justify-between items-start pt-1">
-                    <div class="space-y-1">
-                        <h3 class="text-base font-medium text-zinc-900 group-hover:text-zinc-600 transition-colors font-heading">Urban Cultural Complex</h3>
-                        <p class="text-xs text-zinc-400">Structural / Public Spaces Concept</p>
-                    </div>
-                    <span class="text-xs font-mono text-zinc-400">2025</span>
-                </div>
-            </div>
-
-            <div class="group space-y-5 cursor-none">
-                <div class="aspect-3/2 w-full bg-zinc-100 rounded-xl overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Project Design 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102" />
-                </div>
-                <div class="flex justify-between items-start pt-1">
-                    <div class="space-y-1">
-                        <h3 class="text-base font-medium text-zinc-900 group-hover:text-zinc-600 transition-colors font-heading">Brutalist Monolith Study</h3>
-                        <p class="text-xs text-zinc-400">Experimental Material & Light Exploration</p>
-                    </div>
-                    <span class="text-xs font-mono text-zinc-400">2026</span>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
-    <section id="about" class="py-28 bg-zinc-50 px-8 md:px-16">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            
-            <div class="lg:col-span-7 space-y-6">
-                <span class="text-xs font-mono text-zinc-400 uppercase tracking-[0.3em] block">Background</span>
-                <h2 class="text-3xl md:text-5xl font-light tracking-tight text-zinc-900 font-heading">About Me</h2>
+            <div class="flex flex-col gap-24">
                 
-                <div class="space-y-5 text-zinc-600 font-light leading-relaxed text-base md:text-lg">
-                    <p>
-                        I am an architectural designer driven by structural clarity and intentional aesthetics. My academic path is grounded in analytical thinking and rigorous problem-solving, focusing heavily on how form, light, material, and human experience intersect inside designed environments.
-                    </p>
-                    <p>
-                        With a deep commitment to sustainable structures and spatial systems thinking, I build foundations to contribute meaningfully to top engineering, urban planning, and premium architectural computing programs worldwide.
-                    </p>
+                <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-7 bg-neutral-50 aspect-[16/10] w-full border border-neutral-200 flex items-center justify-center p-6 relative overflow-hidden">
+                        <div class="text-center">
+                            <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-2">[ Placement Image Asset ]</span>
+                            <p class="text-sm font-medium text-neutral-500">Pavillion Concept Render Coming Soon</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 flex flex-col justify-center">
+                        <span class="text-xs text-neutral-400 font-mono mb-2">2025 / Concept</span>
+                        <h4 class="font-heading text-2xl font-light mb-3 text-neutral-900">Pavillion</h4>
+                        <p class="text-sm text-neutral-600 leading-relaxed max-w-sm">
+                            An exploration into raw minimalist structural frameworks, studying how light, structural clarity, and open volumes interact to form unified public spaces.
+                        </p>
+                    </div>
                 </div>
+
+                <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-7 bg-neutral-50 aspect-[16/10] w-full border border-neutral-200 flex items-center justify-center p-6 relative overflow-hidden md:order-last">
+                        <div class="text-center">
+                            <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-2">[ Placement Image Asset ]</span>
+                            <p class="text-sm font-medium text-neutral-500">Transient Shelter Structural Renders Coming Soon</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 flex flex-col justify-center">
+                        <span class="text-xs text-neutral-400 font-mono mb-2">2025 / Structural Study</span>
+                        <h4 class="font-heading text-2xl font-light mb-3 text-neutral-900">Transient Shelter</h4>
+                        <p class="text-sm text-neutral-600 leading-relaxed max-w-sm">
+                            A modular, rapidly deployable urban structure exploring flexible layouts, material optimization, and human scale dynamics within dense environments.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-7 bg-neutral-50 aspect-[16/10] w-full border border-neutral-200 flex items-center justify-center p-6 relative overflow-hidden">
+                        <div class="text-center">
+                            <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-2">[ Placement Image Asset ]</span>
+                            <p class="text-sm font-medium text-neutral-500">Urban Sanctuary Elevation & Layout Plan Coming Soon</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 flex flex-col justify-center">
+                        <span class="text-xs text-neutral-400 font-mono mb-2">2026 / Exploration</span>
+                        <h4 class="font-heading text-2xl font-light mb-3 text-neutral-900">Urban Sanctuary</h4>
+                        <p class="text-sm text-neutral-600 leading-relaxed max-w-sm">
+                            An experimental integration of landscape dynamics and heavy architectural masses, focused on natural interior illumination balances and volumetric depth.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="experience" class="py-24 border-b border-neutral-100">
+            <div class="mb-16">
+                <p class="text-xs font-mono text-neutral-400 uppercase tracking-widest mb-2">Timeline</p>
+                <h3 class="font-heading text-3xl font-light tracking-tight">Experience</h3>
             </div>
 
-            <div class="lg:col-span-5 bg-white p-8 md:p-10 rounded-2xl border border-zinc-100 space-y-6">
-                <h3 class="text-xs font-mono font-bold tracking-[0.2em] uppercase text-zinc-400">Academic & Core Focus</h3>
+            <div class="border-t border-neutral-100 divide-y divide-neutral-100">
                 
-                <ul class="space-y-5 divide-y divide-zinc-100">
-                    <li class="pt-2">
-                        <span class="block text-xs text-zinc-400 font-mono tracking-wider mb-1">Specialized Curriculums</span>
-                        <span class="text-sm font-medium text-zinc-800">Advanced Systems Thinking, Architecture & Environmental Physics</span>
-                    </li>
-                    <li class="pt-4">
-                        <span class="block text-xs text-zinc-400 font-mono tracking-wider mb-1">Design Proficiencies</span>
-                        <span class="text-sm font-medium text-zinc-800">3D Spatial Modeling, Drafting Protocols, Sustainable Optimization</span>
-                    </li>
-                    <li class="pt-4">
-                        <span class="block text-xs text-zinc-400 font-mono tracking-wider mb-1">Core Focus Areas</span>
-                        <span class="text-sm font-medium text-zinc-800">Computational Architecture, Geometric Prototyping, Ergonomic Design</span>
-                    </li>
-                </ul>
+                <div class="py-10 grid grid-cols-1 md:grid-cols-12 gap-4">
+                    <div class="md:col-span-3 text-sm text-neutral-400 font-mono pt-1">
+                        2025 — Present
+                    </div>
+                    <div class="md:col-span-9">
+                        <h4 class="text-lg font-medium text-neutral-900 mb-1">Founder & Executive Educator</h4>
+                        <p class="text-xs uppercase tracking-wider font-mono text-neutral-400 mb-4">The ANTs Tutoring Platform</p>
+                        <p class="text-sm md:text-[15px] text-neutral-600 leading-relaxed max-w-3xl">
+                            Established and grew an educational mentoring architecture ecosystem. Spearheading peer-guided instruction initiatives, strategic examination roadmaps, and consistent academic mentorship frameworks for foundational design cohorts.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="py-10 grid grid-cols-1 md:grid-cols-12 gap-4">
+                    <div class="md:col-span-3 text-sm text-neutral-400 font-mono pt-1">
+                        1.6 Years
+                    </div>
+                    <div class="md:col-span-9">
+                        <h4 class="text-lg font-medium text-neutral-900 mb-1">Teaching & Mentorship Experience</h4>
+                        <p class="text-xs uppercase tracking-wider font-mono text-neutral-400 mb-4">Educational Programs</p>
+                        <p class="text-sm md:text-[15px] text-neutral-600 leading-relaxed max-w-3xl">
+                            Delivered structural, customized academic workflows across specialized classes. Maintained consistent instruction models to strengthen student technical competency, conceptual growth, and design theory comprehension.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="py-10 grid grid-cols-1 md:grid-cols-12 gap-4">
+                    <div class="md:col-span-3 text-sm text-neutral-400 font-mono pt-1">
+                        Competitor
+                    </div>
+                    <div class="md:col-span-9">
+                        <h4 class="text-lg font-medium text-neutral-900 mb-1">Design Competition Contributor</h4>
+                        <p class="text-xs uppercase tracking-wider font-mono text-neutral-400 mb-4">Century Design Programme</p>
+                        <p class="text-sm md:text-[15px] text-neutral-600 leading-relaxed max-w-3xl">
+                            Participated in intensive architecture design sprints, engineering structural concepts alongside modern spatial parameters to satisfy multifaceted technical programs under strict criteria.
+                        </p>
+                    </div>
+                </div>
+
             </div>
+        </section>
 
-        </div>
-    </section>
-
-
-    <section id="experience" class="py-28 px-8 md:px-16 max-w-7xl mx-auto space-y-16">
-        <div class="space-y-4">
-            <span class="text-xs font-mono text-zinc-400 uppercase tracking-[0.3em] block">Timeline</span>
-            <h2 class="text-3xl md:text-5xl font-light tracking-tight font-heading">Experience</h2>
-        </div>
-
-        <div class="space-y-8 max-w-4xl">
-            
-            <div class="grid grid-cols-1 md:grid-cols-4 pt-8 border-t border-zinc-100 gap-4 md:gap-8">
-                <span class="text-sm font-mono text-zinc-400">2025 - Present</span>
-                <div class="md:col-span-3 space-y-2">
-                    <h3 class="text-lg font-medium text-zinc-900 font-heading">Design Assistant / Architectural Mentor</h3>
-                    <p class="text-xs text-zinc-400 uppercase tracking-wider font-mono">Collaborative Architectural Cohorts</p>
-                    <p class="text-sm text-zinc-600 font-light leading-relaxed">
-                        Leading peer-guided design groups, delivering structured instruction on blueprint strategies, spatial dynamics, and mentorship in structural formulation principles.
-                    </p>
+        <section id="connect" class="py-24 mb-16">
+            <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-12 text-center max-w-3xl mx-auto">
+                <h3 class="font-heading text-3xl font-light tracking-tight mb-4">Let's Connect</h3>
+                <p class="text-neutral-600 text-sm md:text-base max-w-md mx-auto mb-10 leading-relaxed">
+                    I am open to conversations with architectural boards, admissions teams, and potential studio collaborators.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="mailto:your-email@domain.com" 
+                       class="w-full sm:w-auto bg-black text-white text-xs tracking-widest uppercase font-medium px-8 py-4 rounded hover:bg-neutral-800 transition-all shadow-md hover:shadow-lg inline-flex justify-center items-center">
+                        Email Me
+                    </a>
+                    <a href="https://linkedin.com/in/your-username" target="_blank"
+                       class="w-full sm:w-auto bg-white text-black border border-neutral-300 text-xs tracking-widest uppercase font-medium px-8 py-4 rounded hover:bg-neutral-50 hover:border-neutral-400 transition-all shadow-sm inline-flex justify-center items-center">
+                        LinkedIn
+                    </a>
                 </div>
             </div>
+        </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 pt-8 border-t border-zinc-100 gap-4 md:gap-8">
-                <span class="text-sm font-mono text-zinc-400">2024 - 2025</span>
-                <div class="md:col-span-3 space-y-2">
-                    <h3 class="text-lg font-medium text-zinc-900 font-heading">Independent Space Planning Consultant</h3>
-                    <p class="text-xs text-zinc-400 uppercase tracking-wider font-mono">Freelance Blueprint Architecture</p>
-                    <p class="text-sm text-zinc-600 font-light leading-relaxed">
-                        Developed practical spatial layout solutions, structural communication schemes, and drafted preliminary design renders for independent functional builds.
-                    </p>
-                </div>
-            </div>
+    </main>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 pt-8 border-t border-zinc-100 gap-4 md:gap-8">
-                <span class="text-sm font-mono text-zinc-400">2024</span>
-                <div class="md:col-span-3 space-y-2">
-                    <h3 class="text-lg font-medium text-zinc-900 font-heading">Local Design & Systems Representative</h3>
-                    <p class="text-xs text-zinc-400 uppercase tracking-wider font-mono">Regional Structural Showcase Forums</p>
-                    <p class="text-sm text-zinc-600 font-light leading-relaxed">
-                        Promoted technical architecture participation locally, inspiring students to engage with structural workflows and modern computational rendering platforms.
-                    </p>
-                </div>
-            </div>
-
+    <footer class="border-t border-neutral-100 py-12 bg-neutral-50 text-xs font-mono text-neutral-400">
+        <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
+            <div>Aung Khant Thaw_Leo</div>
+            <div>2026 Portfolio</div>
         </div>
-    </section>
-
-
-    <section id="connect" class="py-24 bg-zinc-950 text-white px-8 md:px-16 text-center rounded-t-[2rem]">
-        <div class="max-w-3xl mx-auto space-y-8">
-            <span class="text-xs font-mono text-zinc-500 uppercase tracking-[0.3em] block">Next Steps</span>
-            <h2 class="text-4xl md:text-6xl font-light tracking-tight font-heading">Let's Connect</h2>
-            <p class="text-zinc-400 font-light text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-                I am actively open to ongoing conversations with admissions boards, design studios, educators, and innovative technical collaborators.
-            </p>
-            
-            <div class="flex flex-wrap justify-center gap-4 pt-4">
-                <a href="mailto:your-email@domain.com" class="bg-white text-black hover:bg-zinc-200 text-xs tracking-widest font-mono uppercase px-6 py-3 rounded-full transition-all duration-300">
-                    Email Me
-                </a>
-                <a href="#" target="_blank" class="border border-zinc-800 hover:border-zinc-500 text-zinc-400 hover:text-white text-xs tracking-widest font-mono uppercase px-6 py-3 rounded-full transition-all duration-300">
-                    LinkedIn
-                </a>
-                <a href="#" target="_blank" class="border border-zinc-800 hover:border-zinc-500 text-zinc-400 hover:text-white text-xs tracking-widest font-mono uppercase px-6 py-3 rounded-full transition-all duration-300">
-                    GitHub
-                </a>
-            </div>
-
-            <div class="pt-16 border-t border-zinc-900 flex flex-col sm:flex-row justify-between text-[10px] text-zinc-600 font-mono tracking-widest">
-                <span>Designed by Leo Aung</span>
-                <span>&copy; 2026 Portfolio / All Rights Reserved</span>
-            </div>
-        </div>
-    </section>
-
-
-    <script>
-        const pointer = document.getElementById('custom-pointer');
-        const ring = document.getElementById('custom-ring');
-
-        let posX = 0, posY = 0;
-        let mouseX = 0, mouseY = 0;
-
-        // Smooth follower animation loop
-        setInterval(() => {
-            posX += (mouseX - posX) * 0.18;
-            posY += (mouseY - posY) * 0.18;
-            
-            ring.style.left = posX + 'px';
-            ring.style.top = posY + 'px';
-        }, 16);
-
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-
-            pointer.style.left = mouseX + 'px';
-            pointer.style.top = mouseY + 'px';
-        });
-
-        // Hover expansions for links and actionable UI items
-        document.querySelectorAll('a, button, [role="button"]').forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                pointer.style.width = '20px';
-                pointer.style.height = '20px';
-                ring.style.width = '55px';
-                ring.style.height = '55px';
-                ring.style.borderColor = 'rgba(0,0,0,0.4)';
-            });
-            element.addEventListener('mouseleave', () => {
-                pointer.style.width = '8px';
-                pointer.style.height = '8px';
-                ring.style.width = '40px';
-                ring.style.height = '40px';
-                ring.style.borderColor = 'rgba(0,0,0,0.15)';
-            });
-        });
-    </script>
+    </footer>
 
 </body>
 </html>
