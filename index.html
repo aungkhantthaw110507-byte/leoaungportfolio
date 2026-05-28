@@ -1,405 +1,265 @@
-<!DOCTYPE html>
+<!DOCTYPEDOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Architecture Portfolio | Portfolio Index</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo Aung | Architecture Portfolio</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <style type="text/tailwindcss">
-    @theme {
-      --font-sans: 'DM Sans', sans-serif;
-      --font-heading: 'Space Grotesk', sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-    }
-    
-    body {
-      font-family: var(--font-sans);
-      background-color: #ffffff;
-      color: #000000;
-      -webkit-font-smoothing: antialiased;
-    }
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    .font-heading {
-      font-family: var(--font-heading);
-    }
+    <style type="text/tailwindcss">
+        @theme {
+            --font-sans: 'Inter', sans-serif;
+            --font-heading: 'Outfit', sans-serif;
+        }
 
-    .font-mono {
-      font-family: var(--font-mono);
-    }
+        body {
+            font-family: var(--font-sans);
+            background-color: #ffffff;
+            color: #000000;
+        }
 
-    /* Architectural Drafting Grid Background Effect */
-    .arch-grid {
-      background-size: 40px 40px;
-      background-image: 
-        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-    }
-  </style>
+        h1, h2, h3, .font-heading {
+            font-family: var(--font-heading);
+        }
+    </style>
 </head>
-<body class="bg-white text-black selection:bg-black selection:text-white arch-grid">
+<body class="bg-white text-black antialiased">
 
-  <div class="fixed top-6 left-0 right-0 z-50 px-4 flex justify-center pointer-events-none">
-    <nav class="w-full max-w-4xl bg-white/80 backdrop-blur-md border border-neutral-200 shadow-sm rounded-full p-2 flex items-center justify-between pointer-events-auto transition-all duration-300 hover:border-black">
-      
-      <a href="#" class="font-heading font-semibold text-sm tracking-wider uppercase pl-4 hover:opacity-60 transition-opacity">
-        Thaw <span class="font-light text-neutral-400">Ye Zaw</span>
-      </a>
-
-      <div class="hidden md:flex items-center gap-1 bg-neutral-50 p-1 rounded-full border border-neutral-100">
-        <a href="#cover" class="px-4 py-1.5 text-xs font-mono uppercase tracking-tight text-neutral-600 hover:text-black rounded-full hover:bg-white transition-all">00 / Home</a>
-        <a href="#about" class="px-4 py-1.5 text-xs font-mono uppercase tracking-tight text-neutral-600 hover:text-black rounded-full hover:bg-white transition-all">01 / About</a>
-        <a href="#experience" class="px-4 py-1.5 text-xs font-mono uppercase tracking-tight text-neutral-600 hover:text-black rounded-full hover:bg-white transition-all">02 / Experience</a>
-        <a href="#projects" class="px-4 py-1.5 text-xs font-mono uppercase tracking-tight text-neutral-600 hover:text-black rounded-full hover:bg-white transition-all">03 / Works</a>
-        <a href="#contact" class="px-4 py-1.5 text-xs font-mono uppercase tracking-tight text-neutral-600 hover:text-black rounded-full hover:bg-white transition-all">04 / Connect</a>
-      </div>
-
-      <div class="pr-1">
-        <a href="#contact" class="inline-flex items-center justify-center bg-black text-white text-xs font-heading font-medium tracking-wide uppercase px-5 py-2.5 rounded-full hover:bg-neutral-800 transition-colors shadow-sm">
-          Download CV
-        </a>
-      </div>
-    </nav>
-  </div>
-
-
-  <section id="cover" class="relative w-full h-screen flex flex-col justify-between p-6 md:p-12 overflow-hidden border-b border-neutral-200 bg-white">
-    <div class="absolute inset-0 z-0 opacity-100 flex items-center justify-center">
-      <img src="images/cover.jpg" alt="Architecture Core Concept Canvas" class="w-full h-full object-cover object-center grayscale opacity-15 transition-all duration-700 hover:scale-[1.02]" onerror="this.style.display='none';">
-      <div class="absolute inset-y-0 left-1/4 w-[1px] bg-neutral-200/50 hidden md:block"></div>
-      <div class="absolute inset-y-0 left-3/4 w-[1px] bg-neutral-200/50 hidden md:block"></div>
-    </div>
-
-    <div class="relative z-10 flex justify-between items-start w-full mt-24">
-      <div class="border-l-2 border-black pl-4 py-1">
-        <p class="text-xs font-mono uppercase tracking-widest text-neutral-400">Selected Archive</p>
-        <p class="text-sm font-heading font-medium uppercase tracking-wider text-black mt-0.5">Architectural Specimen</p>
-      </div>
-      <p class="text-xs font-mono uppercase tracking-widest text-neutral-400 text-right hidden sm:block">
-        Portfolio Index<br>Edition Studio &bull; 2026
-      </p>
-    </div>
-
-    <div class="relative z-10 my-auto max-w-5xl">
-      <h1 class="text-6xl sm:text-8xl md:text-9xl font-heading font-bold uppercase tracking-[-0.03em] text-black leading-[0.85] drop-shadow-sm">
-        SPATIAL<br><span class="font-light text-neutral-400">ARCHITECTURE</span>
-      </h1>
-      <div class="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
-        <span class="h-[1px] w-24 bg-black hidden sm:block"></span>
-        <h2 class="text-xl sm:text-2xl font-mono uppercase tracking-[0.2em] text-black font-light">
-          Thaw Ye Zaw
-        </h2>
-        <span class="text-xs font-mono uppercase tracking-widest text-neutral-400 sm:ml-auto">Studio Edition &bull; Vol. I</span>
-      </div>
-    </div>
-
-    <div class="relative z-10 w-full flex justify-between items-center pt-4 border-t border-neutral-200">
-      <p class="text-xs font-mono text-neutral-400 uppercase tracking-widest">&copy; 2026 Index. Structural Rights Reserved.</p>
-      <a href="#about" class="group flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-black hover:text-neutral-500 transition-colors">
-        Enter Exhibition Context 
-        <span class="transform group-hover:translate-y-1 transition-transform duration-300">&darr;</span>
-      </a>
-    </div>
-  </section>
-
-
-  <section class="max-w-7xl mx-auto px-6 py-24 border-b border-neutral-200">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      
-      <div class="lg:col-span-7 space-y-6">
-        <div class="inline-block px-3 py-1 bg-neutral-100 text-black text-xs font-mono uppercase tracking-wider rounded-sm border border-neutral-200">
-          A-Level Student | Spatial Geometry Enthusiast | Technical Designer
+    <section id="home" class="min-h-screen flex flex-col justify-between px-6 py-12 md:px-12 lg:px-24 bg-zinc-50">
+        <div class="flex justify-between items-center w-full">
+            <span class="text-xs uppercase tracking-widest font-medium text-zinc-500">Portfolio / 2026</span>
+            <span class="text-xs uppercase tracking-widest font-medium text-zinc-500">Available for Collaborations</span>
         </div>
-        <h2 class="text-4xl sm:text-5xl md:text-6xl font-heading font-medium tracking-tight text-black leading-tight">
-          Formulating spatial clarity and solving structural challenges with material purpose.
-        </h2>
-        <p class="text-base text-neutral-600 leading-relaxed max-w-2xl">
-          I am an Edexcel IAL student focused on the intersection of Mathematics, Further Mathematics, Physics, and Technical Drawing. My architectural approach balances geometric calculus with structural purity, translating complex principles into responsive, user-focused physical environments.
-        </p>
-        <div class="pt-4 flex flex-wrap gap-4">
-          <a href="#projects" class="inline-flex items-center justify-center bg-black text-white px-6 py-3 text-sm font-heading tracking-wide uppercase font-medium hover:bg-neutral-800 transition-colors rounded-sm">
-            View Project Index
-          </a>
-          <a href="#experience" class="inline-flex items-center justify-center border border-neutral-300 bg-white text-black px-6 py-3 text-sm font-heading tracking-wide uppercase font-medium hover:bg-neutral-50 hover:border-black transition-colors rounded-sm">
-            Explore Leadership Logs
-          </a>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 my-auto items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <span class="inline-block text-xs uppercase tracking-widest font-semibold bg-black text-white px-3 py-1 rounded-full">Architectural Designer</span>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-zinc-900 leading-none">
+                    Leo Aung
+                </h1>
+                <p class="text-xl md:text-2xl font-light text-zinc-600 max-w-xl leading-relaxed">
+                    Building structural depth, spatial balance, and solving architectural design problems with clear artistic purpose.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#projects" class="bg-black hover:bg-zinc-800 text-white px-6 py-3 rounded-full text-sm tracking-wider uppercase font-medium transition-all duration-300">
+                        View Projects
+                    </a>
+                    <a href="#connect" class="border border-zinc-300 hover:border-black text-zinc-700 hover:text-black px-6 py-3 rounded-full text-sm tracking-wider uppercase font-medium transition-all duration-300">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-5">
+                <div class="aspect-4/5 w-full bg-zinc-200 rounded-3xl overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Architectural Form" class="w-full h-full object-cover grayscale contrast-115 transition-transform duration-700 group-hover:scale-105" />
+                    <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-xl">
+                        <p class="text-xs font-mono uppercase tracking-wider text-zinc-500">Latest Concept Study</p>
+                        <p class="text-sm font-medium text-zinc-900">The Minimalist Pavilion (2026)</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="lg:col-span-5">
-        <div class="relative w-full aspect-[4/5] bg-neutral-50 border border-neutral-200 rounded-2xl overflow-hidden shadow-sm group flex items-center justify-center">
-          <img src="images/profile.jpg" alt="Thaw Ye Zaw Speaking Presentation Context" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-out" onerror="this.style.display='none';">
-          
-          <div class="absolute inset-0 p-8 flex flex-col justify-between pointer-events-none border border-inside border-neutral-100">
-            <div class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest">[ Studio Canvas / Blueprint View ]</div>
-            <div class="w-full border-b border-dashed border-neutral-300"></div>
-            <div class="text-[10px] font-mono text-neutral-400 tracking-tighter text-right">Coordinate System: 1° 21' N / 103° 46' E</div>
-          </div>
+        <div class="w-full text-left">
+            <span class="text-xs font-mono text-zinc-400">Scroll down to explore</span>
         </div>
-      </div>
-
-    </div>
-  </section>
+    </section>
 
 
-  <section id="about" class="max-w-7xl mx-auto px-6 py-24 border-b border-neutral-200">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-      
-      <div class="lg:col-span-6 space-y-6">
-        <div class="text-xs font-mono uppercase tracking-widest text-neutral-400">01 / Context Overview</div>
-        <h3 class="text-3xl md:text-4xl font-heading font-medium text-black">Academic Formulation</h3>
-        <p class="text-base text-neutral-600 leading-relaxed">
-          Currently pursuing my academic curriculum at Hinthar International School, specializing in Edexcel IAL Mathematics, Further Mathematics, Physics, and IT. My design path is grounded in systematic, analytical thinking and disciplined problem-solving methodologies.
-        </p>
-        <p class="text-base text-neutral-600 leading-relaxed">
-          Prior to this level, I graduated from GIC with an exceptional profile of <strong class="text-black font-medium">6A*s and 1A in IGCSE O Level</strong>. This track demonstrates consistency, ambition, and deep commitment to excellence in rigorous and competitive academic environments.
-        </p>
-      </div>
-
-      <div class="lg:col-span-6">
-        <div class="w-full h-full bg-neutral-950 text-white border border-neutral-800 p-8 rounded-2xl shadow-xl flex flex-col justify-between relative overflow-hidden">
-          
-          <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
-          
-          <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-neutral-300 text-[10px] font-mono uppercase tracking-widest rounded-full border border-white/15">
-              <span class="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-pulse"></span> Academic Highlights Index
+    <nav class="w-full bg-white py-5 px-6 md:px-12 lg:px-24 sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            
+            <div class="flex items-center space-x-2">
+                <span class="font-heading font-bold text-lg tracking-wider uppercase">Leo Aung</span>
+                <span class="text-zinc-300 text-sm">|</span>
+                <span class="text-zinc-500 text-xs tracking-widest uppercase font-light hidden sm:inline-block">Architecture Portfolio</span>
             </div>
 
-            <ul class="mt-8 space-y-6">
-              <li class="flex items-start gap-4 border-b border-white/10 pb-4">
-                <span class="text-xs font-mono text-neutral-500 mt-1">01 /</span>
-                <div>
-                  <h4 class="text-xs font-mono uppercase tracking-wider text-neutral-400">Edexcel IAL Matrix</h4>
-                  <p class="text-sm font-heading font-medium text-white mt-1">Mathematics, Further Mathematics, Physics, IT</p>
+            <div class="hidden md:flex items-center space-x-8 lg:space-x-12 text-xs font-mono tracking-wider text-zinc-500">
+                <a href="#home" class="hover:text-black transition-colors duration-200">00 / HOME</a>
+                <a href="#projects" class="hover:text-black transition-colors duration-200">01 / PROJECTS</a>
+                <a href="#about" class="hover:text-black transition-colors duration-200">02 / ABOUT</a>
+                <a href="#experience" class="hover:text-black transition-colors duration-200">03 / EXPERIENCE</a>
+                <a href="#connect" class="hover:text-black transition-colors duration-200">04 / CONNECT</a>
+            </div>
+
+            <div>
+                <a href="#" class="bg-black hover:bg-zinc-800 text-white text-xs tracking-widest font-mono uppercase px-5 py-2.5 rounded-full transition-all duration-300 inline-block">
+                    Download CV
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <section id="projects" class="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto space-y-16">
+        <div class="space-y-4">
+            <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest block">Selected works</span>
+            <h2 class="text-3xl md:text-5xl font-light tracking-tight">Project Designs & Spatial Concepts</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="group space-y-4">
+                <div class="aspect-3/2 w-full bg-zinc-100 rounded-2xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Project Design 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103" />
                 </div>
-              </li>
-              <li class="flex items-start gap-4 border-b border-white/10 pb-4">
-                <span class="text-xs font-mono text-neutral-500 mt-1">02 /</span>
-                <div>
-                  <h4 class="text-xs font-mono uppercase tracking-wider text-neutral-400">IGCSE O Level Benchmark</h4>
-                  <p class="text-sm font-heading font-medium text-white mt-1">Validated Excellence: 6 A* Marks and 1 A Evaluation</p>
+                <div class="flex justify-between items-start pt-2">
+                    <div>
+                        <h3 class="text-lg font-medium group-hover:text-zinc-600 transition-colors">Residential Minimalist Pavilion</h3>
+                        <p class="text-sm text-zinc-500">Concept / Sustainable Residential Study</p>
+                    </div>
+                    <span class="text-xs font-mono text-zinc-400">2025</span>
                 </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <span class="text-xs font-mono text-neutral-500 mt-1">03 /</span>
-                <div>
-                  <h4 class="text-xs font-mono uppercase tracking-wider text-neutral-400">Core Focus Disciplines</h4>
-                  <p class="text-sm font-heading font-medium text-white mt-1">Computer Science, Systems Thinking, Structural Optimization, Applied Learning</p>
+            </div>
+
+            <div class="group space-y-4">
+                <div class="aspect-3/2 w-full bg-zinc-100 rounded-2xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Project Design 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103" />
                 </div>
-              </li>
-            </ul>
-          </div>
+                <div class="flex justify-between items-start pt-2">
+                    <div>
+                        <h3 class="text-lg font-medium group-hover:text-zinc-600 transition-colors">Urban Cultural Complex</h3>
+                        <p class="text-sm text-zinc-500">Structural / Public Spaces Concept</p>
+                    </div>
+                    <span class="text-xs font-mono text-zinc-400">2025</span>
+                </div>
+            </div>
 
-          <div class="mt-12 pt-4 border-t border-white/10 flex justify-between items-center text-[10px] font-mono text-neutral-500 uppercase tracking-widest">
-            <span>Verified Record Matrix</span>
-            <span>Ref: 2026-HI-09</span>
-          </div>
+            <div class="group space-y-4">
+                <div class="aspect-3/2 w-full bg-zinc-100 rounded-2xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Project Design 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103" />
+                </div>
+                <div class="flex justify-between items-start pt-2">
+                    <div>
+                        <h3 class="text-lg font-medium group-hover:text-zinc-600 transition-colors">Brutalist Monolith Study</h3>
+                        <p class="text-sm text-zinc-500">Experimental Material & Light Exploration</p>
+                    </div>
+                    <span class="text-xs font-mono text-zinc-400">2026</span>
+                </div>
+            </div>
 
         </div>
-      </div>
-
-    </div>
-  </section>
+    </section>
 
 
-  <section id="experience" class="max-w-7xl mx-auto px-6 py-24 border-b border-neutral-200">
-    <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-12 gap-4">
-      <div>
-        <div class="text-xs font-mono uppercase tracking-widest text-neutral-400">02 / Professional Practice Log</div>
-        <h3 class="text-3xl md:text-4xl font-heading font-medium text-black mt-1">Experience & Engagement</h3>
-      </div>
-      <p class="text-xs font-mono text-neutral-400 max-w-xs md:text-right">
-        Combining teaching, mentorship, and community engagement over the past 1.5 years to grow as an educator and technologist.
-      </p>
-    </div>
+    <section id="about" class="py-24 bg-zinc-50 px-6 md:px-12 lg:px-24">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6">
+                <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest block">Background</span>
+                <h2 class="text-3xl md:text-5xl font-light tracking-tight text-zinc-900">About Me</h2>
+                
+                <div class="space-y-4 text-zinc-600 font-light leading-relaxed text-base md:text-lg">
+                    <p>
+                        I am an architectural designer driven by structural clarity and intentional aesthetics. My academic path is grounded in analytical thinking and rigorous problem-solving, focusing heavily on how form, light, material, and human experience intersect inside designed environments.
+                    </p>
+                    <p>
+                        With a deep commitment to sustainable structures and spatial systems thinking, I build foundations to contribute meaningfully to top engineering, urban planning, and premium architectural computing programs worldwide.
+                    </p>
+                </div>
+            </div>
 
-    <div class="relative border-l border-neutral-200 pl-6 md:pl-10 ml-2 space-y-10">
-      
-      <div class="relative group">
-        <div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 bg-white border-2 border-black rounded-full group-hover:bg-black transition-colors z-10"></div>
-        
-        <div class="bg-white border border-neutral-200 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-neutral-400 transition-all duration-300">
-          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-100 pb-3 mb-4">
-            <span class="text-xs font-mono uppercase px-3 py-1 bg-neutral-100 text-black border border-neutral-200 rounded-full font-medium">Present</span>
-            <span class="text-xs font-mono text-neutral-400">Instructional Studio</span>
-          </div>
-          <h4 class="text-xl font-heading font-medium text-black">Teacher</h4>
-          <p class="text-xs font-mono text-neutral-500 mt-1 uppercase tracking-wider font-semibold">MFIS</p>
-          <p class="text-sm text-neutral-600 mt-4 leading-relaxed">
-            Deliver structured lessons, support student progress, and design learning experiences that strengthen conceptual and spatial understanding.
-          </p>
+            <div class="lg:col-span-5 bg-white p-8 rounded-3xl border border-zinc-100 space-y-6">
+                <h3 class="text-xs font-mono font-bold tracking-widest uppercase text-zinc-400">Academic & Core Focus</h3>
+                
+                <ul class="space-y-4 divide-y divide-zinc-100">
+                    <li class="pt-2">
+                        <span class="block text-xs text-zinc-400 font-mono">Specialized Curriculums</span>
+                        <span class="text-sm font-medium text-zinc-800">Advanced Systems Thinking, Architecture & Environmental Physics</span>
+                    </li>
+                    <li class="pt-4">
+                        <span class="block text-xs text-zinc-400 font-mono">Design Proficiencies</span>
+                        <span class="text-sm font-medium text-zinc-800">3D Spatial Modeling, Drafting Protocols, Sustainable Optimization</span>
+                    </li>
+                    <li class="pt-4">
+                        <span class="block text-xs text-zinc-400 font-mono">Core Focus Areas</span>
+                        <span class="text-sm font-medium text-zinc-800">Computational Architecture, Geometric Prototyping, Ergonomic Design</span>
+                    </li>
+                </ul>
+            </div>
+
         </div>
-      </div>
+    </section>
 
-      <div class="relative group">
-        <div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 bg-white border-2 border-black rounded-full group-hover:bg-black transition-colors z-10"></div>
-        
-        <div class="bg-white border border-neutral-200 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-neutral-400 transition-all duration-300">
-          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-100 pb-3 mb-4">
-            <span class="text-xs font-mono uppercase px-3 py-1 bg-neutral-100 text-black border border-neutral-200 rounded-full font-medium">1.5 Years Term</span>
-            <span class="text-xs font-mono text-neutral-400">Systems Outreach</span>
-          </div>
-          <h4 class="text-xl font-heading font-medium text-black">Teaching Experience</h4>
-          <p class="text-xs font-mono text-neutral-500 mt-1 uppercase tracking-wider font-semibold">The ANTS ( ICT / CS )</p>
-          <p class="text-sm text-neutral-600 mt-4 leading-relaxed">
-            Developed practical communication, structural planning, and leadership skills through sustained instruction and peer student mentoring.
-          </p>
+
+    <section id="experience" class="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto space-y-12">
+        <div class="space-y-4">
+            <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest block">Timeline</span>
+            <h2 class="text-3xl md:text-5xl font-light tracking-tight">Experience</h2>
         </div>
-      </div>
 
-      <div class="relative group">
-        <div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 bg-white border-2 border-black rounded-full group-hover:bg-black transition-colors z-10"></div>
-        
-        <div class="bg-white border border-neutral-200 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-neutral-400 transition-all duration-300">
-          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-100 pb-3 mb-4">
-            <span class="text-xs font-mono uppercase px-3 py-1 bg-neutral-100 text-black border border-neutral-200 rounded-full font-medium">Campaign Phase 2025</span>
-            <span class="text-xs font-mono text-neutral-400">Global Competition Grid</span>
-          </div>
-          <h4 class="text-xl font-heading font-medium text-black">Local Ambassador</h4>
-          <p class="text-xs font-mono text-neutral-500 mt-1 uppercase tracking-wider font-semibold">International Computer Science Competition (ICSC)</p>
-          <p class="text-sm text-neutral-600 mt-4 leading-relaxed">
-            Represented and promoted computer science participation locally, encouraging secondary students to engage with global-level computational challenges.
-          </p>
+        <div class="space-y-8 max-w-4xl">
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 pt-6 border-t border-zinc-100 gap-2 md:gap-6">
+                <span class="text-sm font-mono text-zinc-400">2025 - Present</span>
+                <div class="md:col-span-3 space-y-2">
+                    <h3 class="text-lg font-medium">Design Assistant / Architectural Mentor</h3>
+                    <p class="text-sm text-zinc-500 font-medium">Collaborative Architectural Cohorts</p>
+                    <p class="text-sm text-zinc-600 font-light leading-relaxed">
+                        Leading peer-guided design groups, delivering structured instruction on blueprint strategies, spatial dynamics, and mentorship in structural formulation principles.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 pt-6 border-t border-zinc-100 gap-2 md:gap-6">
+                <span class="text-sm font-mono text-zinc-400">2024 - 2025</span>
+                <div class="md:col-span-3 space-y-2">
+                    <h3 class="text-lg font-medium">Independent Space Planning Consultant</h3>
+                    <p class="text-sm text-zinc-500 font-medium">Freelance Blueprint Architecture</p>
+                    <p class="text-sm text-zinc-600 font-light leading-relaxed">
+                        Developed practical spatial layout solutions, structural communication schemes, and drafted preliminary design renders for independent functional builds.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 pt-6 border-t border-zinc-100 gap-2 md:gap-6">
+                <span class="text-sm font-mono text-zinc-400">2024</span>
+                <div class="md:col-span-3 space-y-2">
+                    <h3 class="text-lg font-medium">Local Design & Systems Representative</h3>
+                    <p class="text-sm text-zinc-500 font-medium">Regional Structural Showcase Forums</p>
+                    <p class="text-sm text-zinc-600 font-light leading-relaxed">
+                        Promoted technical architecture participation locally, inspiring students to engage with structural workflows and modern computational rendering platforms.
+                    </p>
+                </div>
+            </div>
+
         </div>
-      </div>
-
-    </div>
-  </section>
+    </section>
 
 
-  <section id="projects" class="max-w-7xl mx-auto px-6 py-24 border-b border-neutral-200">
-    <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-12 gap-4">
-      <div>
-        <div class="text-xs font-mono uppercase tracking-widest text-neutral-400">03 / Production Manifest</div>
-        <h3 class="text-3xl md:text-4xl font-heading font-medium text-black mt-1">Projects & Leadership</h3>
-      </div>
-      <span class="text-xs font-mono text-neutral-400 uppercase tracking-widest bg-neutral-100 border border-neutral-200 px-3 py-1 rounded-sm">
-        Compilation Blueprint Index
-      </span>
-    </div>
+    <section id="connect" class="py-24 bg-zinc-950 text-white px-6 md:px-12 lg:px-24 text-center rounded-t-[2.5rem]">
+        <div class="max-w-3xl mx-auto space-y-8">
+            <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest block">Next Steps</span>
+            <h2 class="text-4xl md:text-6xl font-light tracking-tight">Let's Connect</h2>
+            <p class="text-zinc-400 font-light text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+                I am actively open to ongoing conversations with admissions boards, design studios, educators, and innovative technical collaborators.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <a href="mailto:your-email@domain.com" class="bg-white text-black hover:bg-zinc-200 text-sm tracking-wider uppercase font-medium px-6 py-3 rounded-full transition-all duration-300">
+                    Email Me
+                </a>
+                <a href="#" target="_blank" class="border border-zinc-700 hover:border-white text-zinc-300 hover:text-white text-sm tracking-wider uppercase font-medium px-6 py-3 rounded-full transition-all duration-300">
+                    LinkedIn
+                </a>
+                <a href="#" target="_blank" class="border border-zinc-700 hover:border-white text-zinc-300 hover:text-white text-sm tracking-wider uppercase font-medium px-6 py-3 rounded-full transition-all duration-300">
+                    GitHub
+                </a>
+            </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-      
-      <div class="bg-white border border-neutral-200 p-8 rounded-2xl shadow-sm flex flex-col justify-between hover:border-black transition-all">
-        <div>
-          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 bg-neutral-50 border border-neutral-200 px-2 py-0.5 rounded-sm">Leadership Grid</span>
-          <h4 class="text-2xl font-heading font-medium text-black mt-4">Founder &mdash; The ANTS</h4>
-          <p class="text-sm text-neutral-600 mt-3 leading-relaxed">
-            I founded The ANTS, a tutoring group dedicated to supporting IGCSE students through peer-guided instruction, exam strategy, and consistent academic mentoring. This initiative reflects my belief that leadership in technology begins with service, clarity, and community impact.
-          </p>
+            <div class="pt-16 border-t border-zinc-900 flex flex-col sm:flex-row justify-between text-xs text-zinc-600 font-mono gap-4">
+                <span>Designed by Leo Aung</span>
+                <span>&copy; 2026 Portfolio / All Rights Reserved</span>
+            </div>
         </div>
-        <div class="mt-8 border-t border-neutral-100 pt-4 flex items-center justify-between text-xs font-mono text-neutral-400">
-          <span>Scale: Student Leadership Initiative</span>
-          <span>Status: Maintained</span>
-        </div>
-      </div>
-
-      <div class="bg-neutral-50 border border-neutral-200 p-8 rounded-2xl shadow-sm flex flex-col justify-between relative overflow-hidden">
-        <div>
-          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 bg-white border border-neutral-200 px-2 py-0.5 rounded-sm">Technical Projects</span>
-          <h4 class="text-2xl font-heading font-medium text-neutral-400 mt-4">Future Developments <span class="text-xs font-mono text-black uppercase bg-neutral-200 px-2 py-0.5 rounded-full ml-2">Launching After Exams</span></h4>
-          <p class="text-sm text-neutral-500 mt-3 leading-relaxed">
-            A focused project sprint is planned after A-level examinations. Upcoming work will center on practical software engineering, user-focused product design, and problem-solving tools for education, architecture modeling, and productivity.
-          </p>
-        </div>
-        <div class="mt-8 border-t border-neutral-200 pt-4 flex items-center justify-between text-xs font-mono text-neutral-400">
-          <span>Focus Core: React + Python Engine</span>
-          <span>Timeline: Q3 2026</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      
-      <div class="border border-neutral-200 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md hover:border-black transition-all group">
-        <div class="w-full aspect-video bg-neutral-100 rounded-lg border border-neutral-200 mb-6 relative overflow-hidden flex items-center justify-center">
-          <img src="images/project1.jpg" alt="Project Specimen Model 01" class="w-full h-full object-cover grayscale group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500" onerror="this.style.display='none';">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
-          <span class="text-[10px] font-mono text-neutral-400 pointer-events-none absolute">[ Preview Matrix: Project 01 ]</span>
-        </div>
-        <span class="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block">Project 01 &mdash; In Development</span>
-        <h5 class="text-lg font-heading font-medium text-black mt-1">React-Based Web Application</h5>
-        <p class="text-xs text-neutral-500 mt-2 leading-relaxed">
-          An interactive, responsive user deployment application concept constructed via structural frontend parameters. Details to be published.
-        </p>
-      </div>
-
-      <div class="border border-neutral-200 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md hover:border-black transition-all group">
-        <div class="w-full aspect-video bg-neutral-100 rounded-lg border border-neutral-200 mb-6 relative overflow-hidden flex items-center justify-center">
-          <img src="images/project2.jpg" alt="Project Specimen Model 02" class="w-full h-full object-cover grayscale group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500" onerror="this.style.display='none';">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
-          <span class="text-[10px] font-mono text-neutral-400 pointer-events-none absolute">[ Preview Matrix: Project 02 ]</span>
-        </div>
-        <span class="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block">Project 02 &mdash; In Development</span>
-        <h5 class="text-lg font-heading font-medium text-black mt-1">Data-Driven Optimization Tool</h5>
-        <p class="text-xs text-neutral-500 mt-2 leading-relaxed">
-          Analytical processing layout configured with Python structures and modern API integration models.
-        </p>
-      </div>
-
-      <div class="border border-neutral-200 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md hover:border-black transition-all group">
-        <div class="w-full aspect-video bg-neutral-100 rounded-lg border border-neutral-200 mb-6 relative overflow-hidden flex items-center justify-center">
-          <img src="images/project3.jpg" alt="Project Specimen Model 03" class="w-full h-full object-cover grayscale group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500" onerror="this.style.display='none';">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
-          <span class="text-[10px] font-mono text-neutral-400 pointer-events-none absolute">[ Preview Matrix: Project 03 ]</span>
-        </div>
-        <span class="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block">Project 03 &mdash; In Development</span>
-        <h5 class="text-lg font-heading font-medium text-black mt-1">Collaborative Workspace Platform</h5>
-        <p class="text-xs text-neutral-500 mt-2 leading-relaxed">
-          A concept workflow framework layout engineered to synchronize design documentation and study progress among student cohorts.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <section id="contact" class="max-w-7xl mx-auto px-6 py-24">
-    <div class="bg-neutral-950 text-white rounded-3xl p-8 md:p-16 text-center border border-neutral-800 shadow-2xl relative overflow-hidden">
-      
-      <div class="absolute -bottom-48 left-1/2 -translate-x-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div class="max-w-2xl mx-auto space-y-6 relative z-10">
-        <h3 class="text-4xl md:text-5xl font-heading font-medium tracking-tight">Let's Connect</h3>
-        <p class="text-sm text-neutral-400 leading-relaxed max-w-lg mx-auto">
-          I am open to conversations with admissions teams, educators, practitioners, and collaborators interested in technology, learning systems, and student-focused innovation.
-        </p>
-
-        <div class="pt-6 flex flex-wrap justify-center gap-4">
-          <a href="mailto:thawyezaw@example.com" class="inline-flex items-center justify-center bg-white text-black px-6 py-3 rounded-full text-xs font-mono uppercase tracking-wider font-semibold hover:bg-neutral-200 transition-colors shadow-md">
-            Email Me
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-neutral-900 border border-neutral-800 text-white px-6 py-3 rounded-full text-xs font-mono uppercase tracking-wider hover:bg-neutral-800 hover:border-neutral-700 transition-all">
-            LinkedIn
-          </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-neutral-900 border border-neutral-800 text-white px-6 py-3 rounded-full text-xs font-mono uppercase tracking-wider hover:bg-neutral-800 hover:border-neutral-700 transition-all">
-            GitHub
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <footer class="border-t border-neutral-200 bg-neutral-50 py-12 text-xs font-mono text-neutral-400">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-6">
-      <div class="flex items-center gap-3">
-        <span class="w-2 h-2 bg-black rounded-full"></span>
-        <span class="text-black font-medium uppercase tracking-wide">Thaw Ye Zaw</span>
-        <span>| 2026 Portfolio Index</span>
-      </div>
-      <div class="text-center sm:text-right">
-        <span>Curated Chronology &bull; &copy; 2026 All Rights Reserved</span>
-      </div>
-    </div>
-  </footer>
+    </section>
 
 </body>
 </html>
