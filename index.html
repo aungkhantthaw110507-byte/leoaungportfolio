@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght=200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -17,18 +17,21 @@
             --font-heading: 'Outfit', sans-serif;
         }
 
-        /* Clean Pristine Whiter Architectural Canvas */
+        /* Clean Pristine Whiter Architectural Canvas with Soft Math Grid Background */
         body {
             font-family: var(--font-sans);
             background-color: #fafafa;
             color: #000000;
+            background-size: 30px 30px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
         }
 
         h1, h2, h3, h4, .font-heading {
             font-family: var(--font-heading);
         }
 
-        /* Interactive SketchUp Crosshair Cursor System */
+        /* AutoCAD Dynamic Crosshair Cursor System Styles */
         @media (hover: hover) {
             html, body {
                 cursor: none;
@@ -38,60 +41,64 @@
             }
         }
 
-        #sketchup-cursor-h {
+        #autocad-cursor-h {
             position: fixed;
-            width: 32px;
+            width: 44px;
             height: 1px;
-            background-color: rgba(0, 0, 0, 0.25);
+            background-color: rgba(0, 0, 0, 0.75);
             pointer-events: none;
             z-index: 10000;
             transform: translate(-50%, -50%);
             display: none;
         }
 
-        #sketchup-cursor-v {
+        #autocad-cursor-v {
             position: fixed;
             width: 1px;
-            height: 32px;
-            background-color: rgba(0, 0, 0, 0.25);
+            height: 44px;
+            background-color: rgba(0, 0, 0, 0.75);
             pointer-events: none;
             z-index: 10000;
             transform: translate(-50%, -50%);
             display: none;
         }
 
-        #sketchup-cursor-dot {
+        #autocad-cursor-box {
             position: fixed;
-            width: 4px;
-            height: 4px;
-            background-color: #000000;
-            border-radius: 50%;
+            width: 6px;
+            height: 6px;
+            background-color: rgba(0, 0, 0, 0.9);
             pointer-events: none;
             z-index: 10001;
             transform: translate(-50%, -50%);
             display: none;
         }
 
+        #autocad-select-box {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            display: none;
+        }
+
         @media (hover: hover) {
-            #sketchup-cursor-h, #sketchup-cursor-v, #sketchup-cursor-dot {
+            #autocad-cursor-h, #autocad-cursor-v, #autocad-cursor-box {
                 display: block;
             }
         }
 
-        /* EMPHASIZED SHADOW EFFECT UNDER EACH PRESENTATION CARD SLIDE */
+        /* FULL WINDOW CANVAS VIEW FOR PC SCREEN WITH DEEP SPREAD SHADOWS */
         .portfolio-page {
-            width: 95vw;
-            max-width: 1414px;
-            height: calc(95vw * (1000 / 1414));
-            max-height: 980px;
+            width: 100%;
+            height: 100vh;
             margin: 0 auto;
             position: relative;
             background-color: #ffffff;
             box-sizing: border-box;
             overflow: hidden;
-            box-shadow: 0 45px 100px -25px rgba(0, 0, 0, 0.16), 0 20px 45px -30px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: box-shadow 0.4s ease;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 12px 24px -12px rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.15);
         }
 
         /* FADE-IN TO APPEAR SCROLL STYLING */
@@ -116,7 +123,7 @@
             transform: translateY(0);
         }
 
-        /* STRICT ARCHITECTURAL PRINT LAYOUT ENGINE (A3 LANDSCAPE COMPLIANCE) */
+        /* STRICT ARCHITECTURAL PRINT LAYOUT ENGINE (A3 LANDSCAPE COMPLIANCE & CONTINUOUS BOOKLET PATTERN) */
         @media print {
             @page {
                 size: A3 landscape;
@@ -124,19 +131,20 @@
             }
             html, body {
                 width: 420mm !important;
-                height: 297mm !important;
                 background-image: none !important;
                 background-color: #ffffff !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
                 overflow: visible !important;
             }
-            header, footer, #sketchup-cursor-h, #sketchup-cursor-v, #sketchup-cursor-dot, .no-print {
+            header, footer, #autocad-cursor-h, #autocad-cursor-v, #autocad-cursor-box, #autocad-select-box, .no-print {
                 display: none !important;
             }
             main {
                 space-y: 0 !important;
                 padding-bottom: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
             }
             section {
                 padding: 0 !important;
@@ -161,7 +169,7 @@
                 max-height: none !important;
                 box-shadow: none !important;
                 border: none !important;
-                padding: 24mm !important;
+                padding: 0 !important;
                 margin: 0 !important;
                 border-radius: 0 !important;
             }
@@ -185,11 +193,12 @@
 </head>
 <body class="overflow-x-hidden antialiased relative">
 
-    <div id="sketchup-cursor-h"></div>
-    <div id="sketchup-cursor-v"></div>
-    <div id="sketchup-cursor-dot"></div>
+    <div id="autocad-cursor-h"></div>
+    <div id="autocad-cursor-v"></div>
+    <div id="autocad-cursor-box"></div>
+    <div id="autocad-select-box"></div>
 
-    <header id="ribbon-nav" class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md border-b border-zinc-200/60 py-3.5 px-8 md:px-12 z-50 shadow-xs">
+    <header id="ribbon-nav" class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md border-b border-zinc-200/60 py-5 px-8 md:px-12 z-50 shadow-xs">
         <div class="w-full flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <span class="font-heading font-light text-xs tracking-[0.3em] uppercase text-zinc-800">Leo Aung Khant Thaw</span>
@@ -207,9 +216,9 @@
     </header>
 
 
-    <main class="w-full space-y-24 pb-24">
+    <main class="w-full space-y-4 px-4 md:px-8">
 
-        <section id="slide-1" class="w-full min-h-screen bg-white p-12 md:p-24 flex flex-col justify-between border-b border-zinc-200 select-none reveal-element">
+        <section id="slide-1" class="w-full h-screen bg-white p-12 md:p-24 flex flex-col justify-between border-b border-zinc-200 select-none reveal-element">
             <div class="flex justify-between items-start w-full text-xs md:text-sm tracking-[0.25em] uppercase text-zinc-900 font-sans">
                 <div class="flex items-start space-x-4">
                     <div class="w-[2px] h-14 bg-black"></div> 
@@ -240,7 +249,6 @@
                 <div class="flex items-center space-x-2 animate-pulse">
                     <span>Explore / Scroll Down</span>
                 </div>
-                <span class="text-zinc-900 font-extrabold font-sans">PAGE 01</span>
             </div>
         </section>
 
@@ -270,7 +278,7 @@
                     <div class="lg:col-span-7 flex flex-col justify-between h-full py-2">
                         <div class="space-y-3">
                             <h3 class="text-xs font-mono tracking-[0.25em] uppercase font-bold text-zinc-900 border-b border-zinc-200 pb-1.5">Biography</h3>
-                            <p class="text-xs lg:text-sm text-zinc-600 font-normal leading-relaxed text-justify">
+                            <p class="text-xs lg:text-sm text-zinc-600 font-sans font-normal leading-relaxed text-justify">
                                 Passionate about exploring the fluid boundaries between functional tectonic form, landscape integration, and sustainable built environments. This curation displays academic iterations built on foundational contextual matrices, material performance studies, and programmatic spatial logic.
                             </p>
                         </div>
@@ -281,14 +289,14 @@
                                 <h3 class="text-xs font-mono tracking-[0.25em] uppercase font-bold text-zinc-900 border-b border-zinc-200 pb-1.5">
                                     EDUCATION
                                 </h3>
-                                <div class="space-y-2.5 text-[11px] lg:text-xs">
+                                <div class="space-y-2.5 text-[11px] lg:text-xs font-sans text-zinc-600">
                                     <div>
                                         <div class="font-bold text-zinc-900">Diploma in Architecture</div>
-                                        <div class="text-zinc-500 font-medium">Singapore Polytechnic // 2024 - Present</div>
+                                        <div class="font-medium">Singapore Polytechnic // 2024 - Present</div>
                                     </div>
                                     <div>
                                         <div class="font-bold text-zinc-900">Foundational Architectural Studies</div>
-                                        <div class="text-zinc-500 font-medium">Academic Design Studio Iterations</div>
+                                        <div class="font-medium">Academic Design Studio Iterations</div>
                                     </div>
                                 </div>
                             </div>
@@ -297,14 +305,14 @@
                                 <h3 class="text-xs font-mono tracking-[0.25em] uppercase font-bold text-zinc-900 border-b border-zinc-200 pb-1.5">
                                     EXPERIENCE
                                 </h3>
-                                <div class="space-y-2.5 text-[11px] lg:text-xs">
+                                <div class="space-y-2.5 text-[11px] lg:text-xs font-sans text-zinc-600">
                                     <div>
                                         <div class="font-bold text-zinc-900">Academic Studio Projects</div>
-                                        <div class="text-zinc-500 font-medium">Tectonic Pavilion & Sustainable Shelters</div>
+                                        <div class="font-medium">Tectonic Pavilion & Sustainable Shelters</div>
                                     </div>
                                     <div>
                                         <div class="font-bold text-zinc-900">Topographic Site Analysis Mapping</div>
-                                        <div class="text-zinc-500 font-medium">Civic & Public Library Campus Systems</div>
+                                        <div class="font-medium">Civic & Public Library Campus Systems</div>
                                     </div>
                                 </div>
                             </div>
@@ -340,12 +348,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-end">PAGE 02</div>
             </div>
         </section>
 
 
-        <section id="slide-3" class="w-full pt-8 reveal-element">
+        <section id="slide-3" class="w-full reveal-element">
             <div class="portfolio-page p-16 md:p-24 flex flex-col justify-between relative">
                 
                 <div class="absolute top-24 right-16 lg:right-24 w-[44%] h-[68%] max-w-[520px] bg-[#0c1f38] shadow-[0_25px_60px_-15px_rgba(12,31,56,0.3)] z-0 flex flex-col justify-between p-8 text-white select-none pointer-events-none rounded-xs border border-white/5">
@@ -391,61 +398,54 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-start z-10 relative">PAGE 03</div>
             </div>
         </section>
 
 
         <section id="slide-4" class="w-full reveal-element">
-            <div class="portfolio-page p-16 flex flex-col justify-between">
-                <div class="grid grid-cols-12 gap-12 h-[90%] items-stretch">
-                    <div class="col-span-4 flex flex-col justify-between py-6">
-                        <div class="space-y-8">
-                            <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT ONE // FORMULATION</span>
-                            <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">pavilion</h2>
-                            <div class="h-[2px] bg-black w-14"></div>
-                            <p class="text-xs md:text-sm text-zinc-500 font-normal leading-relaxed font-sans pt-2">
-                                SOME TEXT HERE. Analyzing structural boundary limitations, programmatic response modules, and light illumination angles.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-span-8 relative overflow-hidden bg-zinc-50 border border-zinc-200">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" 
-                             alt="Pavilion Conceptual Render Frame" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute bottom-6 left-6 bg-black text-white px-5 py-2.5 font-mono text-sm md:text-base font-extrabold uppercase tracking-[0.25em]">
-                            CLEAR RENDER BACKGROUND PART 1
-                        </div>
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-start p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white">
+                    <div class="space-y-8">
+                        <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT ONE // FORMULATION</span>
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">pavilion</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
+                            SOME TEXT HERE. Analyzing structural boundary limitations, programmatic response modules, and light illumination angles.
+                        </p>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-start">PAGE 04</div>
+                <div class="w-[67%] h-full relative overflow-hidden bg-zinc-50">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" 
+                         alt="Pavilion Conceptual Render Frame" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute bottom-12 left-12 bg-black text-white px-6 py-3 font-mono text-lg md:text-xl font-bold tracking-[0.3em]">
+                        CLEAR RENDER BACKGROUND PART 1
+                    </div>
+                </div>
             </div>
         </section>
 
 
         <section id="slide-5" class="w-full reveal-element">
-            <div class="portfolio-page p-16 flex flex-col justify-between">
-                <div class="grid grid-cols-12 gap-12 h-[90%] items-stretch">
-                    <div class="col-span-4 flex flex-col justify-between py-6">
-                        <div class="space-y-8">
-                            <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT ONE // PERSPECTIVE</span>
-                            <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">spatial view</h2>
-                            <div class="h-[2px] bg-black w-14"></div>
-                            <p class="text-xs md:text-sm text-zinc-500 font-normal leading-relaxed font-sans pt-2">
-                                Deep internal environment rendering documenting cross-ventilation corridors, material opacity configurations, and natural shadow play.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-span-8 relative overflow-hidden bg-zinc-50 border border-zinc-200">
-                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" 
-                             alt="Pavilion Structural Landscape Panorama View" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-xs px-5 py-3 font-mono text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-zinc-900 border border-zinc-200">
-                            CLEAR RENDER BACKGROUND PART 2
-                        </div>
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-start p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white">
+                    <div class="space-y-8">
+                        <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT ONE // PERSPECTIVE</span>
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">spatial view</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
+                            Deep internal environment rendering documenting cross-ventilation corridors, material opacity configurations, and natural shadow play.
+                        </p>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-start">PAGE 05</div>
+                <div class="w-[67%] h-full relative overflow-hidden bg-zinc-50">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" 
+                         alt="Pavilion Structural Landscape Panorama View" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute bottom-12 left-12 bg-white/95 backdrop-blur-xs px-6 py-3.5 font-mono text-lg md:text-xl font-bold tracking-[0.3em] text-zinc-900 border border-zinc-200">
+                        CLEAR RENDER BACKGROUND PART 2
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -453,254 +453,229 @@
         <section id="slide-6" class="w-full reveal-element">
             <div class="portfolio-page p-16 flex flex-col justify-between">
                 <div class="grid grid-cols-12 gap-12 h-[90%] items-stretch">
-                    <div class="col-span-4 flex flex-col justify-between py-6">
+                    <div class="col-span-4 flex flex-col justify-start py-6 pt-12 md:pt-16">
                         <div class="space-y-8">
                             <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT ONE // EVOLUTION</span>
                             <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">massing</h2>
                             <div class="h-[2px] bg-black w-14"></div>
-                            <p class="text-xs md:text-sm text-zinc-500 font-normal leading-relaxed font-sans pt-2">
+                            <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
                                 Dynamic mass configuration progression mapping core site adaptations, subtractive volumes, and additive structural envelopes.
                             </p>
                         </div>
                     </div>
                     <div class="col-span-8 grid grid-cols-3 gap-6">
                         <div class="relative overflow-hidden bg-zinc-50 border border-zinc-200 flex flex-col justify-end p-4">
-                            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=500&q=80" alt="Massing Step 1" class="absolute inset-0 w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=500& Sherman&q=80" alt="Massing Step 1" class="absolute inset-0 w-full h-full object-cover">
                             <div class="relative z-10 bg-white/95 px-3 py-1 font-mono text-[10px] uppercase tracking-widest font-bold text-black border border-zinc-200 self-start">massing</div>
                         </div>
                         <div class="relative overflow-hidden bg-zinc-50 border border-zinc-200 flex flex-col justify-end p-4">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=500&q=80" alt="Massing Step 2" class="absolute inset-0 w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=500& Sherman&q=80" alt="Massing Step 2" class="absolute inset-0 w-full h-full object-cover">
                             <div class="relative z-10 bg-black text-white px-3 py-1 font-mono text-[10px] uppercase tracking-widest font-bold self-start">concept</div>
                         </div>
                         <div class="relative overflow-hidden bg-zinc-50 border border-zinc-200 flex flex-col justify-end p-4">
-                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=500&q=80" alt="Massing Step 3" class="absolute inset-0 w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=500& Sherman&q=80" alt="Massing Step 3" class="absolute inset-0 w-full h-full object-cover">
                             <div class="relative z-10 bg-white/95 px-3 py-1 font-mono text-[10px] uppercase tracking-widest font-bold text-black border border-zinc-200 self-start">massing</div>
                         </div>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-start">PAGE 06</div>
             </div>
         </section>
 
 
         <section id="slide-7" class="w-full reveal-element">
-            <div class="portfolio-page p-16 flex flex-col justify-between">
-                <div class="grid grid-cols-12 gap-12 h-[90%] items-stretch">
-                    <div class="col-span-4 flex flex-col justify-between py-6">
-                        <div class="space-y-8">
-                            <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT TWO // PARADIGM</span>
-                            <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">shelter render</h2>
-                            <div class="h-[2px] bg-black w-14"></div>
-                            <p class="text-xs md:text-sm text-zinc-500 font-normal leading-relaxed font-sans pt-2">
-                                Microclimate optimization framework using integrated eco-materials to provide maximum natural thermal performance.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-span-8 relative overflow-hidden bg-zinc-50 border border-zinc-200">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" 
-                             alt="Shelter Structural Concrete Framework Plate" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-xs px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-widest text-zinc-600 border border-zinc-200">
-                            CLEAR RENDER BACKGROUND
-                        </div>
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-start p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white">
+                    <div class="space-y-8">
+                        <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT TWO // PARADIGM</span>
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">shelter render</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
+                            Microclimate optimization framework using integrated eco-materials to provide maximum natural thermal performance.
+                        </p>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-start">PAGE 07</div>
+                <div class="w-[67%] h-full relative overflow-hidden bg-zinc-50">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" 
+                         alt="Shelter Structural Concrete Framework Plate" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute bottom-12 left-12 bg-white/95 backdrop-blur-xs px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-widest text-zinc-600 border border-zinc-200">
+                        CLEAR RENDER BACKGROUND
+                    </div>
+                </div>
             </div>
         </section>
 
 
         <section id="slide-8" class="w-full reveal-element">
-            <div class="portfolio-page p-16 flex flex-col justify-between">
-                <div class="grid grid-cols-12 gap-12 h-[90%] items-stretch">
-                    <div class="col-span-4 flex flex-col justify-between py-6">
-                        <div class="space-y-8">
-                            <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT TWO // ENVELOPE</span>
-                            <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">shelter</h2>
-                            <div class="h-[2px] bg-black w-14"></div>
-                            <p class="text-xs md:text-sm text-zinc-500 font-normal leading-relaxed font-sans pt-2">
-                                Structural analysis of material durability under extreme weather metrics, demonstrating performance-driven tectonic design.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-span-8 relative overflow-hidden bg-zinc-50 border border-zinc-200">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" 
-                             alt="Shelter Material Texture Context Rendering" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-xs px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-widest text-zinc-600 border border-zinc-200">
-                            CLEAR RENDER BACKGROUND
-                        </div>
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-start p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white">
+                    <div class="space-y-8">
+                        <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT TWO // ENVELOPE</span>
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">shelter</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
+                            Structural analysis of material durability under extreme weather metrics, demonstrating performance-driven tectonic design.
+                        </p>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-start">PAGE 08</div>
+                <div class="w-[67%] h-full relative overflow-hidden bg-zinc-50">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Shelter Material Texture Context Rendering" 
+                             class="w-full h-full object-cover">
+                    <div class="absolute bottom-12 left-12 bg-white/95 backdrop-blur-xs px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-widest text-zinc-600 border border-zinc-200">
+                        CLEAR RENDER BACKGROUND
+                    </div>
+                </div>
             </div>
         </section>
 
 
         <section id="slide-9" class="w-full reveal-element">
-            <div class="portfolio-page p-16 flex flex-col justify-between">
-                <div class="grid grid-cols-12 gap-12 h-[90%] items-stretch">
-                    <div class="col-span-4 flex flex-col justify-between py-6">
-                        <div class="space-y-8">
-                            <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT THREE // LANDSCAPE</span>
-                            <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light tight">library render</h2>
-                            <div class="h-[2px] bg-black w-14"></div>
-                            <p class="text-xs md:text-sm text-zinc-500 font-normal leading-relaxed font-sans pt-2">
-                                Civic infrastructure project combining deep landscape contours with communal gathering halls to form an integrated library campus.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-span-8 relative overflow-hidden bg-zinc-50 border border-zinc-200">
-                        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1200&q=80" 
-                             alt="Landscape Public Library Design Interior Space" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute bottom-6 left-6 bg-black text-white px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-widest">
-                            CLEAR RENDER BACKGROUND
-                        </div>
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-start p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white">
+                    <div class="space-y-8">
+                        <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT THREE // LANDSCAPE</span>
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light tight">library render</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
+                            Civic infrastructure project combining deep landscape contours with communal gathering halls to form an integrated library campus.
+                        </p>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-start">PAGE 09</div>
+                <div class="w-[67%] h-full relative overflow-hidden bg-zinc-50">
+                    <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Landscape Public Library Design Interior Space" 
+                             class="w-full h-full object-cover">
+                    <div class="absolute bottom-12 left-12 bg-black text-white px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-widest">
+                        CLEAR RENDER BACKGROUND
+                    </div>
+                </div>
             </div>
         </section>
 
 
         <section id="slide-10" class="w-full reveal-element">
-            <div class="portfolio-page p-16 flex flex-col justify-between">
-                <div class="grid grid-cols-12 gap-12 h-[90%] items-stretch">
-                    <div class="col-span-4 flex flex-col justify-between py-6">
-                        <div class="space-y-10">
-                            <div class="space-y-4">
-                                <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">ANALYSIS MATRIX</span>
-                                <h2 class="text-3xl font-heading uppercase tracking-widest text-black font-bold leading-tight">design issue</h2>
-                                <div class="h-[2px] bg-black w-10"></div>
-                                <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal pt-2 leading-relaxed">
-                                    Addressing urban friction lines, microclimate bottlenecks, and site elevation constraints.
-                                </p>
-                            </div>
-                            <div class="space-y-4 pt-4">
-                                <h2 class="text-3xl font-heading uppercase tracking-widest text-zinc-400 font-medium leading-tight">design intent</h2>
-                                <div class="h-[1px] bg-zinc-300 w-10"></div>
-                                <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal pt-2 leading-relaxed">
-                                    Creating continuous, unhindered pathways that stitch landscape topography with newly formed public pavilions.
-                                </p>
-                            </div>
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-start p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white">
+                    <div class="space-y-10">
+                        <div class="space-y-4">
+                            <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">ANALYSIS MATRIX</span>
+                            <h2 class="text-3xl font-heading uppercase tracking-widest text-black font-bold leading-tight">design issue</h2>
+                            <div class="h-[2px] bg-black w-10"></div>
+                            <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal pt-2 leading-relaxed">
+                                Addressing urban friction lines, microclimate bottlenecks, and site elevation constraints.
+                            </p>
                         </div>
-                    </div>
-                    <div class="col-span-8 relative overflow-hidden bg-zinc-50 border border-zinc-200">
-                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" 
-                             alt="Architectural Construction Planning Workspace Map" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-xs px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-widest text-zinc-600 border border-zinc-200">
-                            CLEAR RENDER BACKGROUND
+                        <div class="space-y-4 pt-4">
+                            <h2 class="text-3xl font-heading uppercase tracking-widest text-zinc-400 font-medium leading-tight">design intent</h2>
+                            <div class="h-[1px] bg-zinc-300 w-10"></div>
+                            <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal pt-2 leading-relaxed">
+                                Creating continuous, unhindered pathways that stitch landscape topography with newly formed public pavilions.
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-start">PAGE 10</div>
+                <div class="w-[67%] h-full relative overflow-hidden bg-zinc-50">
+                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Architectural Construction Planning Workspace Map" 
+                             class="w-full h-full object-cover">
+                    <div class="absolute bottom-12 left-12 bg-white/95 backdrop-blur-xs px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-widest text-zinc-600 border border-zinc-200">
+                        CLEAR RENDER BACKGROUND
+                    </div>
+                </div>
             </div>
         </section>
 
 
         <section id="slide-11" class="w-full reveal-element">
-            <div class="portfolio-page p-16 flex flex-col justify-between">
-                <div class="grid grid-cols-12 gap-12 h-[90%] items-stretch">
-                    <div class="col-span-4 flex flex-col justify-between py-6">
-                        <div class="space-y-8">
-                            <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT TWO // FOUNDATION</span>
-                            <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">design<br>concept</h2>
-                            <div class="h-[2px] bg-black w-14"></div>
-                            <p class="text-xs md:text-sm text-zinc-500 font-normal leading-relaxed font-sans pt-2">
-                                Development workflow defining material thresholds, geometry alignments, and environmental response envelopes.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-span-8 relative overflow-hidden bg-zinc-50 border border-zinc-200">
-                        <div class="absolute inset-0 bg-zinc-100/50 flex items-center justify-center border border-dashed border-zinc-300">
-                            <span class="font-mono text-xs tracking-widest uppercase text-zinc-400">Structural Schematic Diagram Plate</span>
-                        </div>
-                        <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-xs px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-widest text-zinc-600 border border-zinc-200">
-                            CLEAR RENDER BACKGROUND
-                        </div>
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-start p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white">
+                    <div class="my-auto space-y-8">
+                        <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT THREE // FOUNDATION</span>
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">design<br>concept</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
+                            Development workflow defining material thresholds, geometry alignments, and environmental response envelopes.
+                        </p>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-start">PAGE 11</div>
+                <div class="w-[67%] h-full relative overflow-hidden bg-zinc-50">
+                    <div class="absolute inset-0 bg-zinc-100 flex items-center justify-center border-l border-zinc-200">
+                        <span class="font-mono text-xs tracking-widest uppercase text-zinc-400">Structural Schematic Diagram Plate</span>
+                    </div>
+                    <div class="absolute bottom-12 left-12 bg-white/95 backdrop-blur-xs px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-widest text-zinc-600 border border-zinc-200">
+                        CLEAR RENDER BACKGROUND
+                    </div>
+                </div>
             </div>
         </section>
 
 
         <section id="slide-12" class="w-full reveal-element">
-            <div class="portfolio-page p-16 flex flex-col justify-between">
-                <div class="grid grid-cols-12 gap-12 h-[90%] items-stretch">
-                    <div class="col-span-4 flex flex-col justify-between py-6">
-                        <div class="space-y-8">
-                            <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">ENVIRONMENTAL METRICS // LOGISTICS</span>
-                            <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">climatic<br>reasons</h2>
-                            <div class="h-[2px] bg-black w-14"></div>
-                            <p class="text-xs md:text-sm text-zinc-500 font-normal leading-relaxed font-sans pt-2">
-                                Performance charts documenting passive cooling mechanics, natural airflow corridors, and seasonal microclimatic wind variations.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-span-8 relative overflow-hidden bg-zinc-50 border border-zinc-200 p-8 flex items-center justify-center">
-                        <div class="w-full h-full border border-dashed border-zinc-200 bg-white flex items-center justify-center">
-                            <span class="font-mono text-xs text-zinc-400 tracking-[0.2em] uppercase font-bold">climatic reasons diagram</span>
-                        </div>
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-start p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white">
+                    <div class="my-auto space-y-8">
+                        <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">ENVIRONMENTAL METRICS // LOGISTICS</span>
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">climatic<br>reasons</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
+                            Performance charts documenting passive cooling mechanics, natural airflow corridors, and seasonal microclimatic wind variations.
+                        </p>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-start">PAGE 12</div>
+                <div class="w-[67%] h-full relative overflow-hidden bg-zinc-50 p-12 flex items-center justify-center">
+                    <div class="w-full h-full border border-dashed border-zinc-200 bg-white flex items-center justify-center">
+                        <span class="font-mono text-xs text-zinc-400 tracking-[0.2em] uppercase font-bold">climatic reasons diagram</span>
+                    </div>
+                </div>
             </div>
         </section>
 
 
         <section id="slide-13" class="w-full reveal-element">
-            <div class="portfolio-page p-16 flex flex-col justify-between">
-                <div class="grid grid-cols-12 gap-12 h-[90%] items-stretch">
-                    <div class="col-span-4 flex flex-col justify-between py-6">
-                        <div class="space-y-8">
-                            <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT THREE // DEVELOPMENT</span>
-                            <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">landscape library</h2>
-                            <div class="h-[2px] bg-black w-14"></div>
-                            <p class="text-sm text-zinc-600 font-normal leading-relaxed font-sans pt-2">
-                                SOME TEXT HERE. Spatial matrix layout framing public reading zones, architectural thoroughfares, and campus integration maps.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-span-8 relative overflow-hidden bg-zinc-50 border border-zinc-200">
-                        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1200&q=80" 
-                             alt="Landscape Library Section Frame" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute bottom-6 left-6 bg-black text-white px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-widest">
-                            CLEAR RENDER BACKGROUND PART 1
-                        </div>
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-start p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white">
+                    <div class="my-auto space-y-8">
+                        <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT THREE // DEVELOPMENT</span>
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light tight">landscape library</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        <p class="text-sm text-zinc-600 font-sans font-normal leading-relaxed pt-2">
+                            SOME TEXT HERE. Spatial matrix layout framing public reading zones, architectural thoroughfares, and campus integration maps.
+                        </p>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-start">PAGE 13</div>
+                <div class="w-[67%] h-full relative overflow-hidden bg-zinc-50">
+                    <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Landscape Library Section Frame" 
+                             class="w-full h-full object-cover">
+                    <div class="absolute bottom-12 left-12 bg-black text-white px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-widest">
+                        CLEAR RENDER BACKGROUND PART 1
+                    </div>
+                </div>
             </div>
         </section>
 
 
         <section id="slide-14" class="w-full reveal-element">
-            <div class="portfolio-page p-16 flex flex-col justify-between">
-                <div class="grid grid-cols-12 gap-12 h-[90%] items-stretch">
-                    <div class="col-span-4 flex flex-col justify-between py-6">
-                        <div class="space-y-8">
-                            <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT THREE // CHRONICLES</span>
-                            <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">interior view</h2>
-                            <div class="h-[2px] bg-black w-14"></div>
-                            <p class="text-xs md:text-sm text-zinc-500 font-normal leading-relaxed font-sans pt-2">
-                                Deep internal perspective mapping volumetric floor configurations, sunshading louvers, and dynamic public atrium zones.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-span-8 relative overflow-hidden bg-zinc-50 border border-zinc-200">
-                        <div class="absolute inset-0 bg-zinc-100 flex items-center justify-center">
-                            <span class="font-mono text-xs tracking-widest uppercase text-zinc-400 font-bold">Atrium Perspective Rendering</span>
-                        </div>
-                        <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-xs px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest text-zinc-900 border border-zinc-200">
-                            CLEAR RENDER BACKGROUND PART 2
-                        </div>
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-start p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white">
+                    <div class="my-auto space-y-8">
+                        <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT THREE // CHRONICLES</span>
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">interior view</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
+                            Deep internal perspective mapping volumetric floor configurations, sunshading louvers, and dynamic public atrium zones.
+                        </p>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-start">PAGE 14</div>
+                <div class="w-[67%] h-full relative overflow-hidden bg-zinc-50">
+                    <div class="absolute inset-0 bg-zinc-100 flex items-center justify-center border-l border-zinc-200">
+                        <span class="font-mono text-xs tracking-widest uppercase text-zinc-400 font-bold">Atrium Perspective Rendering</span>
+                    </div>
+                    <div class="absolute bottom-12 left-12 bg-white/95 backdrop-blur-xs px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest text-zinc-900 border border-zinc-200">
+                        CLEAR RENDER BACKGROUND PART 2
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -733,7 +708,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-start">PAGE 15</div>
             </div>
         </section>
 
@@ -766,7 +740,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-xs font-heading tracking-widest text-zinc-400 font-extrabold self-start">PAGE 16</div>
             </div>
         </section>
 
@@ -780,17 +753,22 @@
             </div>
             
             <button onclick="window.print()" class="group flex items-center space-x-3 bg-black text-white hover:bg-zinc-800 px-7 py-3.5 font-mono text-xs tracking-[0.2em] font-bold uppercase transition-all duration-300">
-                <span>PRINT PORTFOLIO (A3)</span>
+                <span>PRINT BOOKLET SPREAD (A3)</span>
                 <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
             </button>
         </div>
     </footer>
 
     <script>
-        const cursorH = document.getElementById('sketchup-cursor-h');
-        const cursorV = document.getElementById('sketchup-cursor-v');
-        const cursorDot = document.getElementById('sketchup-cursor-dot');
+        const cursorH = document.getElementById('autocad-cursor-h');
+        const cursorV = document.getElementById('autocad-cursor-v');
+        const cursorBox = document.getElementById('autocad-cursor-box');
+        const selectBox = document.getElementById('autocad-select-box');
         const body = document.body;
+
+        let isDragging = false;
+        let startX = 0;
+        let startY = 0;
 
         window.addEventListener('mousemove', (e) => {
             const mouseX = e.clientX;
@@ -802,27 +780,76 @@
             cursorV.style.left = mouseX + 'px';
             cursorV.style.top = mouseY + 'px';
 
-            cursorDot.style.left = mouseX + 'px';
-            cursorDot.style.top = mouseY + 'px';
+            cursorBox.style.left = mouseX + 'px';
+            cursorBox.style.top = mouseY + 'px';
+
+            if (isDragging) {
+                const currentX = mouseX;
+                const currentY = mouseY;
+
+                const left = Math.min(startX, currentX);
+                const top = Math.min(startY, currentY);
+                const width = Math.abs(startX - currentX);
+                const height = Math.abs(startY - currentY);
+
+                // Only render selection grid geometries once delta tracking exceeds an intentional offset threshold
+                if (width > 3 || height > 3) {
+                    selectBox.style.left = left + 'px';
+                    selectBox.style.top = top + 'px';
+                    selectBox.style.width = width + 'px';
+                    selectBox.style.height = height + 'px';
+                    selectBox.style.display = 'block';
+
+                    // Left-to-Right logic: Blue Window selection // Right-to-Left logic: Green Crossing box
+                    if (currentX >= startX) {
+                        selectBox.style.backgroundColor = 'rgba(0, 119, 255, 0.15)';
+                        selectBox.style.border = '1px solid rgb(0, 119, 255)';
+                    } else {
+                        selectBox.style.backgroundColor = 'rgba(0, 204, 102, 0.15)';
+                        selectBox.style.border = '1px dashed rgb(0, 204, 102)';
+                    }
+                }
+            }
         });
 
-        // Hover feedback transformations matching a selective snap layout tool
+        window.addEventListener('mousedown', (e) => {
+            // Check if cursor clicked an action target component to let regular functionality execute seamlessly
+            if (e.target.closest('a, button, [role="button"]')) {
+                return;
+            }
+            if (e.button === 0) {
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+            }
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+            selectBox.style.display = 'none';
+        });
+
+        // Hover expansion scale states across menu interactive tags
         document.querySelectorAll('a, button, [role="button"]').forEach(element => {
             element.addEventListener('mouseenter', () => {
-                cursorH.style.width = '44px';
-                cursorH.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-                cursorV.style.height = '44px';
-                cursorV.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-                cursorDot.style.width = '6px';
-                cursorDot.style.height = '6px';
+                cursorH.style.width = '64px';
+                cursorH.style.backgroundColor = 'rgba(0, 119, 255, 0.8)';
+                cursorV.style.height = '64px';
+                cursorV.style.backgroundColor = 'rgba(0, 119, 255, 0.8)';
+                cursorBox.style.width = '8px';
+                cursorBox.style.height = '8px';
+                cursorBox.style.borderColor = 'rgb(0, 119, 255)';
+                cursorBox.style.backgroundColor = 'transparent';
             });
             element.addEventListener('mouseleave', () => {
-                cursorH.style.width = '32px';
-                cursorH.style.backgroundColor = 'rgba(0, 0, 0, 0.25)';
-                cursorV.style.height = '32px';
-                cursorV.style.backgroundColor = 'rgba(0, 0, 0, 0.25)';
-                cursorDot.style.width = '4px';
-                cursorDot.style.height = '4px';
+                cursorH.style.width = '44px';
+                cursorH.style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
+                cursorV.style.height = '44px';
+                cursorV.style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
+                cursorBox.style.width = '6px';
+                cursorBox.style.height = '6px';
+                cursorBox.style.borderColor = 'transparent';
+                cursorBox.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
             });
         });
 
