@@ -1,1 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo Aung Khant Thaw | Architecture Portfolio Presentation</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @theme {
+            --font-sans: 'Inter', sans-serif;
+            --font-heading: 'Outfit', sans-serif;
+        }
+
+        /* Clean Pristine Whiter Architectural Canvas with Soft Math Grid Background */
+        body {
+            font-family: var(--font-sans);
+            background-color: #fafafa;
+            color: #000000;
+            background-size: 30px 30px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: var(--font-heading);
+        }
+
+        /* AutoCAD Dynamic Crosshair Cursor System Styles */
+        @media (hover: hover) {
+            html, body {
+                cursor: none;
+            }
+            a, button, [role="button"], img {
+                cursor: none;
+            }
+        }
+
+        #autocad-cursor-h {
+            position: fixed;
+            width: 44px;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.75);
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        #autocad-cursor-v {
+            position: fixed;
+            width: 1px;
+            height: 44px;
+            background-color: rgba(0, 0, 0, 0.75);
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        #autocad-cursor-box {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background-color: rgba(0, 0, 0, 0.9);
+            pointer-events: none;
+            z-index: 10001;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        #autocad-select-box {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            display: none;
+        }
+
+        @media (hover: hover) {
+            #autocad-cursor-h, #autocad-cursor-v, #autocad-cursor-box {
+                display: block;
+            }
+        }
+
+        /* FULL WINDOW CANVAS VIEW FOR PC SCREEN WITH DEEP SPREAD SHADOWS */
+        .portfolio-page {
+            width: 100%;
+            height: 100vh;
+            margin: 0 auto;
+            position: relative;
+            background-color: #ffffff;
+            box-sizing: border-box;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 12px 24px -12px rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+        }
+
+        /* FADE-IN TO APPEAR SCROLL STYLING */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-element.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* NAVIGATION RIBBON DISPLAY CONTROLLER */
+        #ribbon-nav {
+            transform: translateY(-100%);
+            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        body.scrolled-past-cover #ribbon-nav {
+            transform: translateY(0);
+        }
+
+        /* STRICT ARCHITECTURAL PRINT LAYOUT ENGINE (A3 LANDSCAPE COMPLIANCE & CONTINUOUS BOOKLET PATTERN) */
+        @media print {
+            @page {
+                size: A3 landscape;
+                margin: 0 !important;
+            }
+            html, body {
+                width: 420mm !important;
+                background-image: none !important;
+                background-color: #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                overflow: visible !important;
+            }
+            header, footer, #autocad-cursor-h, #autocad-cursor-v, #autocad-cursor-box, #autocad-select-box, .no-print {
+                display: none !important;
+            }
+            main {
+                space-y: 0 !important;
+                padding-bottom: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            section {
+                padding: 0 !important;
+                margin: 0 !important;
+                border: none !important;
+                height: 297mm !important;
+                page-break-after: always !important;
+                page-break-inside: avoid !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            .reveal-element {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .portfolio-page {
+                width: 420mm !important;
+                height: 297mm !important;
+                max-width: none !important;
+                max-height: none !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+            }
+            #slide-1 {
+                height: 297mm !important;
+                padding: 24mm !important;
+                box-sizing: border-box !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fafafa;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden antialiased relative">
+
+    <div id="autocad-cursor-h"></div>
+    <div id="autocad-cursor-v"></div>
+    <div id="autocad-cursor-box"></div>
+    <div id="autocad-select-box"></div>
+
+    <header id="ribbon-nav" class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md border-b border-zinc-200/60 py-5 px-8 md:px-12 z-50 shadow-xs">
+        <div class="w-full flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <span class="font-heading font-light text-xs tracking-[0.3em] uppercase text-zinc-800">Leo Aung Khant Thaw</span>
+                <span class="text-zinc-200">/</span>
+                <span class="text-zinc-400 text-[11px] tracking-[0.3em] uppercase font-light">Architecture Portfolio</span>
+            </div>
+
+            <div>
+                <a href="Doc1.pdf" download="Doc1.pdf" class="text-zinc-500 hover:text-black text-[11px] tracking-[0.25em] font-mono uppercase font-light transition-colors duration-300 flex items-center gap-2">
+                    <span>Download CV</span>
+                    <span class="text-xs">&darr;</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="w-full space-y-4 px-4 md:px-8">
+
+        <section id="slide-1" class="w-full h-screen bg-white p-12 md:p-24 flex flex-col justify-between border-b border-zinc-200 select-none reveal-element">
+            <div class="flex justify-between items-start w-full text-xs md:text-sm tracking-[0.25em] uppercase text-zinc-900 font-sans">
+                <div class="flex items-start space-x-4">
+                    <div class="w-[2px] h-14 bg-black"></div> 
+                    <div class="space-y-1">
+                        <div class="text-zinc-400 font-medium">Selected Works</div>
+                        <div class="font-bold text-black tracking-[0.2em]">Academic Collection</div>
+                    </div>
+                </div>
+                <div class="text-right font-medium text-zinc-400 space-y-1">
+                    <div class="text-zinc-900 font-bold">Singapore Polytechnic</div>
+                    <div>Dept of Architecture</div>
+                </div>
+            </div>
+            
+            <div class="my-auto py-12 space-y-8">
+                <h1 class="text-[12vw] md:text-[8vw] font-light tracking-[0.16em] text-black leading-none uppercase font-heading">
+                    Portfolio
+                </h1>
+                <div class="flex items-center space-x-8">
+                    <div class="w-24 h-[2px] bg-zinc-800"></div> 
+                    <div class="text-xl md:text-3xl font-light tracking-[0.45em] uppercase text-zinc-900 font-heading">
+                        Leo Aung Khant Thaw
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full flex justify-between items-end text-xs font-mono tracking-[0.3em] text-zinc-400 uppercase font-bold">
+                <div class="flex items-center space-x-2 animate-pulse">
+                    <span>Explore / Scroll Down</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="slide-2" class="w-full reveal-element">
+            <div class="portfolio-page p-12 lg:p-16 flex flex-col justify-between">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch h-[92%] w-full overflow-hidden">
+                    
+                    <div class="lg:col-span-5 flex flex-col justify-between h-full border-r border-zinc-100 pr-4 lg:pr-8">
+                        <div class="relative bg-zinc-50 h-64 lg:h-72 w-full flex items-center justify-center overflow-hidden border border-zinc-200 shadow-xs">
+                            <div class="absolute inset-0 bg-gradient-to-br from-zinc-50 to-zinc-100 opacity-60"></div>
+                            <svg class="w-10 h-10 text-zinc-300 stroke-[0.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                            </svg>
+                            <span class="absolute bottom-3 left-4 text-[9px] font-mono uppercase tracking-widest text-zinc-400">Profile Render Frame / Photo</span>
+                        </div>
+                        
+                        <div class="pt-6 lg:pt-0">
+                            <span class="text-xs font-mono text-zinc-400 uppercase tracking-[0.2em] font-bold block mb-1">Profile Matrix // CV</span>
+                            <h2 class="text-3xl font-heading font-light uppercase tracking-[0.12em] text-black leading-tight">
+                                Leo Aung<br>Khant Thaw
+                            </h2>
+                            <span class="text-xs font-mono text-zinc-500 tracking-widest uppercase block font-medium mt-1">Architecture Student / Designer</span>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-7 flex flex-col justify-between h-full py-2">
+                        <div class="space-y-3">
+                            <h3 class="text-xs font-mono tracking-[0.25em] uppercase font-bold text-zinc-900 border-b border-zinc-200 pb-1.5">Biography</h3>
+                            <p class="text-xs lg:text-sm text-zinc-600 font-sans font-normal leading-relaxed text-justify">
+                                Passionate about exploring the fluid boundaries between functional tectonic form, landscape integration, and sustainable built environments. This curation displays academic iterations built on foundational contextual matrices, material performance studies, and programmatic spatial logic.
+                            </p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 pt-6">
+                            
+                            <div class="space-y-3">
+                                <h3 class="text-xs font-mono tracking-[0.25em] uppercase font-bold text-zinc-900 border-b border-zinc-200 pb-1.5">
+                                    EDUCATION
+                                </h3>
+                                <div class="space-y-2.5 text-[11px] lg:text-xs font-sans text-zinc-600">
+                                    <div>
+                                        <div class="font-bold text-zinc-900">Diploma in Architecture</div>
+                                        <div class="font-medium">Singapore Polytechnic // 2024 - Present</div>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-zinc-900">Foundational Architectural Studies</div>
+                                        <div class="font-medium">Academic Design Studio Iterations</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <h3 class="text-xs font-mono tracking-[0.25em] uppercase font-bold text-zinc-900 border-b border-zinc-200 pb-1.5">
+                                    EXPERIENCE
+                                </h3>
+                                <div class="space-y-2.5 text-[11px] lg:text-xs font-sans text-zinc-600">
+                                    <div>
+                                        <div class="font-bold text-zinc-900">Academic Studio Projects</div>
+                                        <div class="font-medium">Tectonic Pavilion & Sustainable Shelters</div>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-zinc-900">Topographic Site Analysis Mapping</div>
+                                        <div class="font-medium">Civic & Public Library Campus Systems</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <h3 class="text-xs font-mono tracking-[0.25em] uppercase font-bold text-zinc-900 border-b border-zinc-200 pb-1.5">
+                                    CAPABILITIES
+                                </h3>
+                                <ul class="space-y-1 font-sans text-[11px] lg:text-xs text-zinc-600 list-none font-medium">
+                                    <li class="flex items-center space-x-2"><span>&#9642;</span> <span>Conceptual Form Formulation</span></li>
+                                    <li class="flex items-center space-x-2"><span>&#9642;</span> <span>Topographic Landscape Analysis</span></li>
+                                    <li class="flex items-center space-x-2"><span>&#9642;</span> <span>Tectonic Massing Configuration</span></li>
+                                    <li class="flex items-center space-x-2"><span>&#9642;</span> <span>Passive Climate Strategy Mapping</span></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <h3 class="text-xs font-mono tracking-[0.25em] uppercase font-bold text-zinc-900 border-b border-zinc-200 pb-1.5">
+                                    EXPERTISE / TOOLKIT
+                                </h3>
+                                <div class="grid grid-cols-2 gap-x-2 gap-y-1 font-mono text-[10px] lg:text-[11px] text-zinc-600 font-bold uppercase tracking-wider">
+                                    <div>AutoCAD</div>
+                                    <div>Rhinoceros</div>
+                                    <div>Revit</div>
+                                    <div>SketchUp</div>
+                                    <div>Photoshop</div>
+                                    <div>Illustrator</div>
+                                    <div>Enscape</div>
+                                    <div>V-Ray</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="slide-3" class="w-full reveal-element">
+            <div class="portfolio-page p-16 md:p-24 flex flex-col justify-between relative">
+                
+                <div class="space-y-16 max-w-xl lg:max-w-2xl z-10 relative">
+                    <div class="space-y-4">
+                        <span class="text-xs font-mono text-zinc-400 uppercase tracking-[0.3em] font-bold block">Project Architecture Tree</span>
+                        <h2 class="text-5xl font-heading uppercase font-light tracking-widest text-zinc-900">CONTENT</h2>
+                    </div>
+                    <div class="h-[1px] bg-zinc-200 w-full"></div> 
+                    <div class="space-y-12 font-heading tracking-[0.25em] uppercase text-xs md:text-sm">
+                        <div class="flex items-baseline space-x-8 group">
+                            <span class="font-mono text-zinc-400 font-bold text-xl">01</span>
+                            <span class="text-zinc-900 tracking-widest font-medium">Sketches Collection</span>
+                            <div class="flex-grow border-b border-dashed border-zinc-200"></div>
+                        </div>
+                        <div class="flex items-baseline space-x-8 group">
+                            <span class="font-mono text-zinc-400 font-bold text-xl">02</span>
+                            <span class="text-zinc-900 tracking-widest font-medium">Pavilion Concept Project</span>
+                            <div class="flex-grow border-b border-dashed border-zinc-200"></div>
+                        </div>
+                        <div class="flex items-baseline space-x-8 group">
+                            <span class="font-mono text-zinc-400 font-bold text-xl">03</span>
+                            <span class="text-zinc-900 tracking-widest font-medium">Sustainable Shelter Design Study</span>
+                            <div class="flex-grow border-b border-dashed border-zinc-200"></div>
+                        </div>
+                        <div class="flex items-baseline space-x-8 group">
+                            <span class="font-mono text-zinc-400 font-bold text-xl">04</span>
+                            <span class="text-zinc-900 tracking-widest font-medium">3D Software Exercises</span>
+                            <div class="flex-grow border-b border-dashed border-zinc-200"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="slide-sketches-left" class="w-full reveal-element">
+            <div class="portfolio-page p-0 flex flex-row items-stretch justify-between">
+                <div class="w-[30%] h-full flex flex-col justify-between p-12 relative z-10 bg-white">
+                    <div class="space-y-4">
+                        <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">01 // ARCHITECTURAL SKETCHES (LEFT SPREAD)</span>
+                        <h2 class="text-3xl font-heading uppercase tracking-widest text-black font-light leading-tight">Sketches Collection</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                    </div>
+
+                    <div class="font-mono text-[9px] uppercase tracking-widest text-zinc-400">
+                        Draft Plate Ref // SP_S01.L // PAGE 2
+                    </div>
+                </div>
+
+                <div class="w-[70%] h-full relative overflow-hidden bg-white flex items-start justify-end pt-12">
+                    <img src="image/Untitled-1.png" alt="Far Right Full Length Sketch" class="w-full h-full object-contain object-right-top scale-105 origin-top-right">
+                </div>
+            </div>
+        </section>
+
+        <section id="slide-new-pic-holders" class="w-full reveal-element">
+            <div class="portfolio-page p-12 flex items-center justify-center">
+                <div class="flex gap-5 w-full h-[60%]">
+                    <div class="w-[60%] relative overflow-hidden flex items-center justify-center">
+                        <img src="image/inter.png" class="w-full h-full object-contain">
+                    </div>
+                    <div class="w-[40%] relative overflow-hidden flex items-center justify-center">
+                        <img src="image/iso sketch.jpg" class="w-full h-full object-contain">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="slide-4" class="w-full reveal-element">
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-start p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white">
+                    <div class="space-y-8">
+                        <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT TWO // FORMULATION</span>
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">pavilion</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
+                            SOME TEXT HERE. Analyzing structural boundary limitations, programmatic response modules, and light illumination angles.
+                        </p>
+                    </div>
+                </div>
+                <div class="w-[67%] h-full relative overflow-hidden bg-zinc-50">
+                    <img src="image/photo_2026-06-17_13-32-08.jpg" 
+                         alt="Pavilion Conceptual Render Frame" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+
+        <section id="slide-sketches-right" class="w-full reveal-element">
+            <div class="portfolio-page p-12 flex items-center justify-center">
+                <div class="flex gap-5 w-full h-full max-h-[85vh]">
+                    
+                    <div class="w-1/3 border border-dashed border-zinc-300 bg-zinc-50/50 rounded-xs p-10 flex flex-col justify-between">
+                        <div class="space-y-6">
+                            <span class="text-xs font-mono text-zinc-400 tracking-[0.20em] uppercase font-bold block">02 // TECTONIC DETAILS</span>
+                            <h3 class="text-2xl font-heading uppercase tracking-widest text-zinc-900 font-light">Physical Model Iterations</h3>
+                            <div class="h-[2px] bg-black w-14"></div>
+                            <p class="text-xs text-zinc-500 font-sans leading-relaxed">
+                                Explanatory physical model studies detailing roof joint configurations, timber framing alignments, and surface materials. The wood strip mockups demonstrate stability under structural loads and explore spatial permeability through light and shadow articulation.
+                            </p>
+                        </div>
+                        <div class="font-mono text-[9px] uppercase tracking-widest text-zinc-400">
+                            Model Code: PM-2026-T1
+                        </div>
+                    </div>
+                    
+                    <div class="w-1/3 flex flex-col gap-5 h-full">
+                        <div class="flex-1 relative overflow-hidden">
+                            <img src="image/seat photo.png" class="w-full h-full object-cover absolute inset-0">
+                        </div>
+                        <div class="flex-1 relative overflow-hidden">
+                            <img src="image/layvey.png" class="w-full h-full object-cover absolute inset-0">
+                        </div>
+                        <div class="flex-1 relative overflow-hidden">
+                            <img src="image/triangle roof.png" class="w-full h-full object-cover absolute inset-0">
+                        </div>
+                    </div>
+                    
+                    <div class="w-1/3 flex flex-col gap-5 h-full">
+                        <div class="h-[25%] relative overflow-hidden">
+                            <img src="image/block roof model.png" class="w-full h-full object-cover absolute inset-0">
+                        </div>
+                        <div class="flex-1 border border-dashed border-zinc-300 bg-zinc-50/50 rounded-xs"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="slide-7" class="w-full reveal-element">
+            <div class="portfolio-page p-0 flex flex-row items-stretch justify-between bg-zinc-50">
+                <div class="w-[33%] h-full flex flex-col justify-between p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white border-r border-zinc-100">
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">Shelter Project</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        
+                        <div class="space-y-4 pt-2">
+                            <div>
+                                <h3 class="text-xs font-heading tracking-[0.15em] uppercase font-bold text-zinc-900">design issue</h3>
+                                <p class="text-xs text-zinc-500 font-sans leading-relaxed mt-1">
+                                    Addressing urban friction lines, microclimate bottlenecks, and site elevation constraints.
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-xs font-heading tracking-[0.15em] uppercase font-bold text-zinc-900">design intent</h3>
+                                <p class="text-xs text-zinc-500 font-sans leading-relaxed mt-1">
+                                    Creating continuous, unhindered pathways that stitch landscape topography with newly formed public pavilions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="font-mono text-[9px] uppercase tracking-widest text-zinc-400">
+                        Design Matrix Ref // SP-S03.M
+                    </div>
+                </div>
+                <div class="w-[67%] h-full p-12 lg:p-16 flex items-center justify-center bg-zinc-50">
+                    <div class="grid grid-cols-2 gap-5 w-full h-full">
+                        <div class="relative overflow-hidden group flex items-center justify-center bg-white rounded-xs shadow-xs border border-zinc-200">
+                            <img src="image/photo_2026-06-18_13-13-03.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Iter 01">
+                            <div class="absolute top-2 left-2 bg-white/95 px-2 py-0.5 font-mono text-[9px] text-zinc-800 uppercase tracking-widest font-bold border border-zinc-200">Iter 01</div>
+                        </div>
+                        <div class="relative overflow-hidden group flex items-center justify-center bg-white rounded-xs shadow-xs border border-zinc-200">
+                            <img src="image/photo_2026-06-18_13-13-09.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Iter 02">
+                            <div class="absolute top-2 left-2 bg-white/95 px-2 py-0.5 font-mono text-[9px] text-zinc-800 uppercase tracking-widest font-bold border border-zinc-200">Iter 02</div>
+                        </div>
+                        <div class="relative overflow-hidden group flex items-center justify-center bg-white rounded-xs shadow-xs border border-zinc-200">
+                            <img src="image/top view.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Top View">
+                            <div class="absolute top-2 left-2 bg-white/95 px-2 py-0.5 font-mono text-[9px] text-zinc-800 uppercase tracking-widest font-bold border border-zinc-200">Top View</div>
+                        </div>
+                        <div class="relative overflow-hidden group flex items-center justify-center bg-white rounded-xs shadow-xs border border-zinc-200">
+                            <img src="image/3d house.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="3D Model">
+                            <div class="absolute top-2 left-2 bg-white/95 px-2 py-0.5 font-mono text-[9px] text-zinc-800 uppercase tracking-widest font-bold border border-zinc-200">3D Model</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="slide-8" class="w-full reveal-element">
+            <div class="portfolio-page p-0 bg-zinc-50 flex items-center justify-center overflow-hidden">
+                <img src="image/shelter ppt board.png" alt="Shelter Project Presentation Board" class="w-full h-full object-contain">
+            </div>
+        </section>
+
+
+        <section id="slide-9" class="w-full reveal-element">
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-between p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white border-r border-zinc-100">
+                    <div class="space-y-8">
+                        <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT FOUR // Revit modeling</span>
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">Revit solely</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
+                            Dedicated architectural modeling utilising Autodesk Revit. Showcasing BIM component formulation, parametric family definitions, structural grid mapping, and automated construction documentation layouts.
+                        </p>
+                    </div>
+                    <div class="font-mono text-[9px] uppercase tracking-widest text-zinc-400">
+                        BIM Plate Ref // SP-R04.1
+                    </div>
+                </div>
+                <div class="w-[67%] h-full relative overflow-hidden bg-zinc-50">
+                    <img src="image/3d house.jpg" alt="Revit Architectural 3D Model Render" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+
+        <section id="slide-10" class="w-full reveal-element">
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-between p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white border-r border-zinc-100">
+                    <div class="space-y-8">
+                        <span class="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-bold block">PROJECT FIVE // EXERCISES</span>
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">future plates</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
+                            Upcoming project documentation plates, including passive climate strategy mappings, envelope analysis, and site elevation constraints.
+                        </p>
+                    </div>
+                    <div class="font-mono text-[9px] uppercase tracking-widest text-zinc-400">
+                        Placeholder Plate Ref // SP-P05.1
+                    </div>
+                </div>
+                <div class="w-[67%] h-full p-12 lg:p-16 flex items-center justify-center bg-zinc-50">
+                    <div class="grid grid-cols-2 gap-5 w-full h-full">
+                        <div class="border border-dashed border-zinc-300 bg-zinc-50/50 rounded-xs flex items-center justify-center p-8">
+                            <span class="font-mono text-xs text-zinc-400 tracking-wider uppercase font-bold">Plate Placeholder 01</span>
+                        </div>
+                        <div class="border border-dashed border-zinc-300 bg-zinc-50/50 rounded-xs flex items-center justify-center p-8">
+                            <span class="font-mono text-xs text-zinc-400 tracking-wider uppercase font-bold">Plate Placeholder 02</span>
+                        </div>
+                        <div class="border border-dashed border-zinc-300 bg-zinc-50/50 rounded-xs flex items-center justify-center p-8">
+                            <span class="font-mono text-xs text-zinc-400 tracking-wider uppercase font-bold">Plate Placeholder 03</span>
+                        </div>
+                        <div class="border border-dashed border-zinc-300 bg-zinc-50/50 rounded-xs flex items-center justify-center p-8">
+                            <span class="font-mono text-xs text-zinc-400 tracking-wider uppercase font-bold">Plate Placeholder 04</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="w-full border-t border-zinc-200 bg-white py-14 text-center text-zinc-400 no-print">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col items-center justify-between gap-6 sm:flex-row">
+            <div class="flex flex-col items-start font-mono text-xs tracking-widest uppercase space-y-1.5 font-bold">
+                <span>Leo Aung Khant Thaw Portfolio Terminal</span>
+                <span class="text-zinc-300">&copy; 2026 Studio Index Layout</span>
+            </div>
+            
+            <button onclick="window.print()" class="group flex items-center space-x-3 bg-black text-white hover:bg-zinc-800 px-7 py-3.5 font-mono text-xs tracking-[0.2em] font-bold uppercase transition-all duration-300">
+                <span>PRINT BOOKLET SPREAD (A3)</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        const cursorH = document.getElementById('autocad-cursor-h');
+        const cursorV = document.getElementById('autocad-cursor-v');
+        const cursorBox = document.getElementById('autocad-cursor-box');
+        const selectBox = document.getElementById('autocad-select-box');
+        const body = document.body;
+
+        let isDragging = false;
+        let startX = 0;
+        let startY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            cursorH.style.left = mouseX + 'px';
+            cursorH.style.top = mouseY + 'px';
+
+            cursorV.style.left = mouseX + 'px';
+            cursorV.style.top = mouseY + 'px';
+
+            cursorBox.style.left = mouseX + 'px';
+            cursorBox.style.top = mouseY + 'px';
+
+            if (isDragging) {
+                const currentX = mouseX;
+                const currentY = mouseY;
+
+                const left = Math.min(startX, currentX);
+                const top = Math.min(startY, currentY);
+                const width = Math.abs(startX - currentX);
+                const height = Math.abs(startY - currentY);
+
+                // Only render selection grid geometries once delta tracking exceeds an intentional offset threshold
+                if (width > 3 || height > 3) {
+                    selectBox.style.left = left + 'px';
+                    selectBox.style.top = top + 'px';
+                    selectBox.style.width = width + 'px';
+                    selectBox.style.height = height + 'px';
+                    selectBox.style.display = 'block';
+
+                    // Left-to-Right logic: Blue Window selection // Right-to-Left logic: Green Crossing box
+                    if (currentX >= startX) {
+                        selectBox.style.backgroundColor = 'rgba(0, 119, 255, 0.15)';
+                        selectBox.style.border = '1px solid rgb(0, 119, 255)';
+                    } else {
+                        selectBox.style.backgroundColor = 'rgba(0, 204, 102, 0.15)';
+                        selectBox.style.border = '1px dashed rgb(0, 204, 102)';
+                    }
+                }
+            }
+        });
+
+        window.addEventListener('mousedown', (e) => {
+            // Check if cursor clicked an action target component to let regular functionality execute seamlessly
+            if (e.target.closest('a, button, [role="button"]')) {
+                return;
+            }
+            if (e.button === 0) {
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+            }
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+            selectBox.style.display = 'none';
+        });
+
+        // Hover expansion scale states across menu interactive tags
+        document.querySelectorAll('a, button, [role="button"]').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursorH.style.width = '64px';
+                cursorH.style.backgroundColor = 'rgba(0, 119, 255, 0.8)';
+                cursorV.style.height = '64px';
+                cursorV.style.backgroundColor = 'rgba(0, 119, 255, 0.8)';
+                cursorBox.style.width = '8px';
+                cursorBox.style.height = '8px';
+                cursorBox.style.borderColor = 'rgb(0, 119, 255)';
+                cursorBox.style.backgroundColor = 'transparent';
+            });
+            element.addEventListener('mouseleave', () => {
+                cursorH.style.width = '44px';
+                cursorH.style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
+                cursorV.style.height = '44px';
+                cursorV.style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
+                cursorBox.style.width = '6px';
+                cursorBox.style.height = '6px';
+                cursorBox.style.borderColor = 'transparent';
+                cursorBox.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+            });
+        });
+
+        // Trigger navigation ribbon visibility past cover page
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 120) {
+                body.classList.add('scrolled-past-cover');
+            } else {
+                body.classList.remove('scrolled-past-cover');
+            }
+        });
+
+        // INTERSECTION OBSERVER ENTRANCE RENDER ENGINE
+        const revealOptions = {
+            root: null,
+            threshold: 0.12, 
+            rootMargin: "0px 0px -40px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        document.querySelectorAll('.reveal-element').forEach(element => {
+            revealObserver.observe(element);
+        });
+    </script>
+
+</body>
+</html>
