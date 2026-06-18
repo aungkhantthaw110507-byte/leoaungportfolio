@@ -101,6 +101,14 @@
             border-bottom: 2px solid rgba(0, 0, 0, 0.15);
         }
 
+
+        /* A1 board page: match the board image ratio so it fills without cropping */
+        #slide-8 .portfolio-page {
+            aspect-ratio: 1320 / 927;
+            height: auto;
+            min-height: auto;
+            background-color: #ffffff;
+        }
         /* FADE-IN TO APPEAR SCROLL STYLING */
         .reveal-element {
             opacity: 0;
@@ -131,6 +139,8 @@
             }
             html, body {
                 width: 420mm !important;
+                height: auto !important;
+                margin: 0 !important;
                 background-image: none !important;
                 background-color: #ffffff !important;
                 -webkit-print-color-adjust: exact !important;
@@ -141,21 +151,25 @@
                 display: none !important;
             }
             main {
-                space-y: 0 !important;
-                padding-bottom: 0 !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
+                width: 420mm !important;
+                padding: 0 !important;
+                margin: 0 !important;
             }
             section {
+                width: 420mm !important;
+                height: 297mm !important;
                 padding: 0 !important;
                 margin: 0 !important;
                 border: none !important;
-                height: 297mm !important;
                 page-break-after: always !important;
                 page-break-inside: avoid !important;
+                break-after: page !important;
+                break-inside: avoid !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: center !important;
+                overflow: hidden !important;
+                background: #ffffff !important;
             }
             .reveal-element {
                 opacity: 1 !important;
@@ -169,14 +183,29 @@
                 max-height: none !important;
                 box-shadow: none !important;
                 border: none !important;
-                padding: 0 !important;
                 margin: 0 !important;
                 border-radius: 0 !important;
+                overflow: hidden !important;
+                box-sizing: border-box !important;
+            }
+            .portfolio-page img {
+                object-fit: contain !important;
             }
             #slide-1 {
+                width: 420mm !important;
                 height: 297mm !important;
                 padding: 24mm !important;
                 box-sizing: border-box !important;
+            }
+            #slide-8 .portfolio-page {
+                aspect-ratio: auto !important;
+                height: 297mm !important;
+            }
+            #slide-8 img {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: contain !important;
+                background: #ffffff !important;
             }
         }
 
@@ -537,7 +566,7 @@
 
         <section id="slide-8" class="w-full reveal-element">
             <div class="portfolio-page p-0 bg-zinc-50 flex items-center justify-center overflow-hidden">
-                <img src="image/shelter ppt board.png" alt="Shelter Project Presentation Board" class="w-full h-full object-contain">
+                <img src="image/shelter ppt board.png" alt="Shelter Project Presentation Board" class="block w-full h-full object-contain">
             </div>
         </section>
 
