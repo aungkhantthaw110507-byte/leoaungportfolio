@@ -179,7 +179,15 @@
     overflow: hidden;
 }
 
-
+.img-wrapper {
+    @apply w-full h-full flex items-center justify-center overflow-hidden bg-white p-6;
+}
+.img-fill {
+    @apply w-full h-full object-cover;
+}
+.img-fit {
+    @apply w-full h-full object-contain;
+}
 
 </style>
 <style>
@@ -553,30 +561,47 @@
             
         </div>
 
-        <div class="w-[50%] grid grid-cols-2 gap-4">
-            <div class="aspect-square bg-zinc-100/20 overflow-hidden">
+        <div class="w-[75%] grid grid-cols-3 gap-4">
+            <div class="relative bg-zinc-100/20 overflow-hidden group flex items-center justify-center aspect-square transition-all duration-500 hover:scale-105 hover:shadow-xl hover:z-10 cursor-pointer">
                 <img src="image/seat photo.png" class="w-full h-full object-cover">
-            </div>
-            <div class="aspect-square bg-zinc-100/20 overflow-hidden">
-                <img src="image/layvey.png" class="w-full h-full object-cover">
-            </div>
-            <div class="aspect-square bg-zinc-100/20 overflow-hidden">
-                <img src="image/triangle roof.png" class="w-full h-full object-cover">
-            </div>
-            <div class="aspect-square bg-zinc-100/20 overflow-hidden">
-                <img src="image/block roof model.png" class="w-full h-full object-cover">
-            </div>
-        </div>
-
-        <div class="w-[25%] flex flex-col gap-4">
-            <div class="flex-1 flex gap-4 min-h-0">
-                <div class="flex-1 bg-zinc-100/20 overflow-hidden p-2 flex items-center justify-center">
-                    <img src="image/partiimage1.png" class="max-h-full w-auto object-contain">
+                <div class="absolute bottom-0 left-0 w-full bg-zinc-200/95 px-3 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out border-t border-zinc-300">
+                    Sheltered bench
                 </div>
-                
             </div>
-            <div class="h-1/2 bg-zinc-100/20 overflow-hidden p-2 flex items-center justify-center">
+            
+            <div class="relative bg-zinc-100/20 overflow-hidden group flex items-center justify-center aspect-square transition-all duration-500 hover:scale-105 hover:shadow-xl hover:z-10 cursor-pointer">
+                <img src="image/layvey.png" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 w-full bg-zinc-200/95 px-3 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out border-t border-zinc-300">
+                    Human scale
+                </div>
+            </div>
+            
+            <div class="relative bg-zinc-50 overflow-hidden group flex items-center justify-center aspect-square p-2 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:z-10 cursor-pointer">
+                <img src="image/partiimage1.png" class="max-h-full w-auto object-contain">
+                <div class="absolute bottom-0 left-0 w-full bg-zinc-200/95 px-3 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out border-t border-zinc-300">
+                    Parti diagram
+                </div>
+            </div>
+            
+            <div class="relative bg-zinc-100/20 overflow-hidden group flex items-center justify-center aspect-square transition-all duration-500 hover:scale-105 hover:shadow-xl hover:z-10 cursor-pointer">
+                <img src="image/triangle roof.png" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 w-full bg-zinc-200/95 px-3 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out border-t border-zinc-300">
+                    Triangular Structure System
+                </div>
+            </div>
+            
+            <div class="relative bg-zinc-100/20 overflow-hidden group flex items-center justify-center aspect-square transition-all duration-500 hover:scale-105 hover:shadow-xl hover:z-10 cursor-pointer">
+                <img src="image/block roof model.png" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 w-full bg-zinc-200/95 px-3 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out border-t border-zinc-300">
+                    Scored Roof Model
+                </div>
+            </div>
+            
+            <div class="relative bg-zinc-50 overflow-hidden group flex items-center justify-center aspect-square p-2 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:z-10 cursor-pointer">
                 <img src="image/partiimage3.jpg" class="max-h-full w-auto object-contain">
+                <div class="absolute bottom-0 left-0 w-full bg-zinc-200/95 px-3 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out border-t border-zinc-300">
+                    Parti diagram
+                </div>
             </div>
         </div>
 
@@ -584,6 +609,69 @@
 </section>
 
 
+        <section id="slide-shelter-cover" class="w-full reveal-element">
+            <div class="portfolio-page relative flex flex-col items-center justify-center overflow-hidden">
+                <img src="image/model front view.jpg" alt="Shelter Model Front View" class="absolute inset-0 w-full h-full object-cover z-0">
+                
+                <div class="absolute inset-0 bg-black/30 z-0"></div>
+                
+                <div class="relative z-10 flex flex-col items-center text-center space-y-6 p-12">
+                    <h2 class="text-6xl md:text-8xl font-heading uppercase tracking-[0.2em] text-white font-light leading-none drop-shadow-lg">
+                        Shelter
+                    </h2>
+                    <div class="h-[2px] bg-white w-16 shadow-lg"></div>
+                    <p class="text-xs md:text-sm text-zinc-100 font-mono uppercase tracking-[0.25em] font-medium drop-shadow-md">
+                        Architectural Concept & Form Exploration
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="slide-shelter-gallery" class="w-full reveal-element h-screen">
+            <div class="portfolio-page p-6 md:p-12 w-full h-full flex flex-col items-center justify-center">
+                
+                <div class="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 w-full max-w-6xl h-[75vh]">
+                    
+                    <div class="flex flex-col gap-8 h-full">
+                        <div class="relative bg-white overflow-hidden group flex items-center justify-center flex-1 p-2 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:z-10 cursor-pointer border border-zinc-200 shadow-sm">
+                            <img src="image/plan render.jpg" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[0.97] group-hover:opacity-60">
+                            
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/95 px-6 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out shadow-xl border border-zinc-200 pointer-events-none scale-90 group-hover:scale-100">
+                                Plan Render
+                            </div>
+                        </div>
+
+                        <div class="relative bg-white overflow-hidden group flex items-center justify-center flex-1 p-2 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:z-10 cursor-pointer border border-zinc-200 shadow-sm">
+                            <img src="image/elevation render.jpg" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[0.97] group-hover:opacity-60">
+                            
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/95 px-6 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out shadow-xl border border-zinc-200 pointer-events-none scale-90 group-hover:scale-100">
+                                Elevation Render
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-8 h-full">
+                        <div class="relative bg-white overflow-hidden group flex items-center justify-center flex-1 p-2 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:z-10 cursor-pointer border border-zinc-200 shadow-sm">
+                            <img src="image/model render.jpg" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[0.97] group-hover:opacity-60">
+                            
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/95 px-6 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out shadow-xl border border-zinc-200 pointer-events-none scale-90 group-hover:scale-100">
+                                Model Render
+                            </div>
+                        </div>
+
+                        <div class="relative bg-white overflow-hidden group flex items-center justify-center flex-1 p-2 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:z-10 cursor-pointer border border-zinc-200 shadow-sm">
+                            <img src="image/model render 2.jpg" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[0.97] group-hover:opacity-60">
+                            
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/95 px-6 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out shadow-xl border border-zinc-200 pointer-events-none scale-90 group-hover:scale-100">
+                                Model Render 2
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
         <section id="slide-7" class="w-full reveal-element">
             <div class="portfolio-page p-0 flex flex-row items-stretch justify-between">
                 <div class="w-[33%] h-full flex flex-col justify-between p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white border-r border-zinc-100">
