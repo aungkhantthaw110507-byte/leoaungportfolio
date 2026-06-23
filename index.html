@@ -1,3 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo Aung Khant Thaw | Architecture Portfolio Presentation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/split-type"></script>
+
+    <style type="text/tailwindcss">
+
+        
+        @theme {
+            --font-sans: 'Inter', sans-serif;
+            --font-heading: 'Outfit', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: #fafafa;
+            color: #000000;
+            background-size: 30px 30px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: var(--font-heading);
+        }
+
+        @media (hover: hover) {
+            html, body {
+                cursor: none;
+            }
+            a, button, [role="button"], img {
+                cursor: none;
+            }
+        }
+
+        #autocad-cursor-h {
+            position: fixed;
+            width: 44px;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.75);
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        #autocad-cursor-v {
+            position: fixed;
+            width: 1px;
+            height: 44px;
+            background-color: rgba(0, 0, 0, 0.75);
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        #autocad-cursor-box {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background-color: rgba(0, 0, 0, 0.9);
+            pointer-events: none;
+            z-index: 10001;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        #autocad-select-box {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            display: none;
+        }
+
+        @media (hover: hover) {
+            #autocad-cursor-h, #autocad-cursor-v, #autocad-cursor-box {
+                display: block;
+            }
+        }
+
+        .portfolio-page {
+            width: 100%;
+            height: 100vh;
+            margin: 0 auto;
+            position: relative;
+            background-color: #ffffff;
+            box-sizing: border-box;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 12px 24px -12px rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+        }
+
+        #slide-8 .portfolio-page {
+            aspect-ratio: 1320 / 927;
+            height: auto;
+            min-height: auto;
+            background-color: #ffffff;
+        }
+
+        /* Base Reveal */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-element.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered Delays (Add these classes to your HTML elements) */
+        .reveal-delay-100 { transition-delay: 100ms; }
+        .reveal-delay-200 { transition-delay: 200ms; }
+        .reveal-delay-300 { transition-delay: 300ms; }
+        .reveal-delay-400 { transition-delay: 400ms; }
+        .reveal-delay-500 { transition-delay: 500ms; }
+
+        /* Slower transition for photos */
+        .reveal-slow {
+            transition-duration: 1.5s;
+        }
+
+        #ribbon-nav {
+            transform: translateY(-100%);
+            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        body.scrolled-past-cover #ribbon-nav {
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fafafa;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+        }
+
+        /* Liquid Black Animation */
+        .btn-liquid {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: black;
+        }
+
+        .btn-liquid:hover {
+            background-color: black;
+            color: white;
+        }
+       /* Reveal Line Animation */
+.reveal-line .line {
+    display: block;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+}
+
+.reveal-element.is-visible .reveal-line .line {
+    transform: translateY(0%);
+    opacity: 1;
+}
+
+.reveal-line {
+    overflow: hidden;
+}
+
+
+
+</style>
 <style>
 @media print {
     /* 1. Page Setup */
@@ -75,3 +259,579 @@
     }
 }
 </style>
+</head>
+<body class="overflow-x-hidden antialiased relative">
+
+    <div id="autocad-cursor-h"></div>
+    <div id="autocad-cursor-v"></div>
+    <div id="autocad-cursor-box"></div>
+    <div id="autocad-select-box"></div>
+
+    <header id="ribbon-nav" class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md border-b border-zinc-200/60 py-8 px-8 md:px-12 z-50 shadow-sm">
+    <div class="w-full flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <span class="font-heading font-medium text-sm md:text-base tracking-[0.2em] uppercase text-black">Leo Aung Khant Thaw</span>
+            <span class="text-zinc-400 font-medium">/</span>
+            <span class="text-zinc-800 text-xs md:text-sm tracking-[0.2em] uppercase font-medium">Architecture Portfolio</span>
+        </div>
+
+        <div class="flex items-center gap-8">
+            
+            <a href="Aung Khant Thaw Resume.pdf" download="Aung Khant Thaw Resume.pdf" class="text-black hover:text-zinc-600 text-xs md:text-sm tracking-[0.2em] font-mono uppercase font-bold transition-colors duration-300 flex items-center gap-2">
+                <span>Download CV</span>
+                <span class="text-sm">&darr;</span>
+            </a>
+        </div>
+    </div>
+</header>
+    <main class="w-full space-y-4 px-4 md:px-8 mt-24">
+
+        <section id="slide-1" class="w-full h-screen bg-white p-12 md:p-24 flex flex-col justify-between border-b border-zinc-200 select-none reveal-element">
+    
+    <div class="flex justify-between items-start w-full text-xs md:text-sm tracking-[0.25em] uppercase text-zinc-900 font-sans">
+        <div class="flex items-start space-x-4">
+            <div class="w-[2px] h-14 bg-black"></div> 
+            <div class="space-y-1">
+                <div class="text-reveal-mask">
+                    <div class="text-reveal-item text-zinc-400 font-medium">Selected Works</div>
+                </div>
+                <div class="text-reveal-mask">
+                    <div class="text-reveal-item font-bold text-black tracking-[0.2em]">Academic Collection</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="my-auto py-12 space-y-8">
+        <div class="text-reveal-mask">
+            <h1 class="text-reveal-item text-[12vw] md:text-[8vw] font-light tracking-[0.16em] text-black leading-none uppercase font-heading">
+                Portfolio
+            </h1>
+        </div>
+        
+        <div class="flex items-center space-x-8">
+            <div class="w-24 h-[2px] bg-zinc-800"></div> 
+            <div class="text-reveal-mask">
+                <div class="text-reveal-item text-xl md:text-3xl font-light tracking-[0.45em] uppercase text-zinc-900 font-heading">
+                    Leo Aung Khant Thaw
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full flex justify-between items-end text-xs font-mono tracking-[0.3em] text-zinc-400 uppercase font-bold">
+        <div class="text-reveal-mask">
+            <div class="text-reveal-item flex items-center space-x-2 animate-pulse">
+                <span>Explore / Scroll Down</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <section id="slide-2" class="w-full reveal-element">
+            <div id="slide-2-bg" class="portfolio-page p-12 md:p-20 flex flex-col justify-start relative transition-colors duration-700 ease-out" style="background-color: #ffffff;">
+                
+                <div class="space-y-3 mb-10 text-center w-full relative z-10">
+                    <h2 class="text-5xl font-heading uppercase font-light tracking-widest text-zinc-900">CONTENT</h2>
+                    <div class="h-[1px] bg-zinc-200 w-full max-w-3xl mx-auto mt-6"></div> 
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-10 w-full h-[65vh] max-w-7xl mx-auto flex-grow relative z-10">
+                    
+                    <a href="#slide-sketches-left" class="content-bookmark group flex flex-col h-full cursor-none" data-hover-bg="#e8eaed">
+                        <div class="w-full h-full relative overflow-hidden bg-zinc-100 mb-5 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-xl border border-zinc-200/50">
+                            <img src="image/vertical content image.jpg" alt="Sketches Collection" class="w-full h-full object-cover object-center transition-all duration-700">
+                        </div>
+                        <div class="text-center space-y-1">
+                            <span class="font-mono text-zinc-400 font-bold text-xl block transition-colors duration-300 group-hover:text-black">01</span>
+                            <span class="text-zinc-900 tracking-[0.15em] font-medium uppercase text-[10px] lg:text-xs">Sketches Collection</span>
+                        </div>
+                    </a>
+
+                    <a href="#slide-4" class="content-bookmark group flex flex-col h-full cursor-none" data-hover-bg="#e8e6e8">
+                        <div class="w-full h-full relative overflow-hidden bg-zinc-100 mb-5 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-xl border border-zinc-200/50">
+                            <img src="image/triangle roof.png" alt="Pavilion Concept" class="w-full h-full object-cover object-center transition-all duration-700">
+                        </div>
+                        <div class="text-center space-y-1">
+                            <span class="font-mono text-zinc-400 font-bold text-xl block transition-colors duration-300 group-hover:text-black">02</span>
+                            <span class="text-zinc-900 tracking-[0.15em] font-medium uppercase text-[10px] lg:text-xs">Pavilion Concept</span>
+                        </div>
+                    </a>
+
+                    <a href="#slide-7" class="content-bookmark group flex flex-col h-full cursor-none" data-hover-bg="#e3e8e6">
+                        <div class="w-full h-full relative overflow-hidden mb-5 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-xl border border-zinc-200/50 bg-[#c4c6b5] transition-colors duration-700">
+                        </div>
+                        <div class="text-center space-y-1">
+                            <span class="font-mono text-zinc-400 font-bold text-xl block transition-colors duration-300 group-hover:text-black">03</span>
+                            <span class="text-zinc-900 tracking-[0.15em] font-medium uppercase text-[10px] lg:text-xs">Sustainable Shelter</span>
+                        </div>
+                    </a>
+
+                    <a href="#slide-9" class="content-bookmark group flex flex-col h-full cursor-none" data-hover-bg="#e1eaf2">
+                        <div class="w-full h-full relative overflow-hidden mb-5 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-xl border border-zinc-200/50 bg-[#d0deeb] transition-colors duration-700">
+                        </div>
+                        <div class="text-center space-y-1">
+                            <span class="font-mono text-zinc-400 font-bold text-xl block transition-colors duration-300 group-hover:text-black">04</span>
+                            <span class="text-zinc-900 tracking-[0.15em] font-medium uppercase text-[10px] lg:text-xs">3D Software Exercises</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="slide-3" class="w-full reveal-element">
+            <div class="portfolio-page p-12 lg:p-16 flex flex-col justify-between">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch h-[92%] w-full overflow-hidden">
+                    
+                    <div class="lg:col-span-5 flex flex-col justify-end h-full border-r border-zinc-100 pr-4 lg:pr-8 pb-10">
+                        <div class="pt-6 lg:pt-0 pb-6">
+                            <h2 class="text-4xl font-heading font-light uppercase tracking-[0.12em] text-black leading-tight">
+                                Leo Aung<br>Khant Thaw
+                            </h2>
+                            <span class="text-sm font-mono text-zinc-500 tracking-widest uppercase block font-medium mt-1">Architecture Student / Designer</span>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-7 flex flex-col justify-between h-full py-2">
+                        <div class="space-y-3">
+                            <h3 class="text-sm font-mono tracking-[0.25em] uppercase font-bold text-zinc-900 border-b border-zinc-200 pb-1.5">ABOUT ME</h3>
+                            <p class="reveal-element reveal-line text-base lg:text-lg text-zinc-600 font-sans font-normal leading-relaxed text-justify">
+                                A Year 2 Architecture student at Singapore Polytechnic and an aspiring Architect. My academic training gives me a strong understanding of the building codes and social contexts that shape the built environment, which I translate into design using Autodesk AutoCAD, Rhino 8, and Photoshop, and Revit. I naturally take initiative in team settings, bringing a proactive attitude to ensure projects run smoothly from concept to completion.
+                            </p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 pt-6">
+                            
+                            <div class="space-y-3">
+                                <h3 class="text-sm font-mono tracking-[0.25em] uppercase font-bold text-zinc-900 border-b border-zinc-200 pb-1.5">
+                                    EDUCATION
+                                </h3>
+                                <div class="space-y-4 text-xs lg:text-sm font-sans text-zinc-600">
+                                    <div>
+                                        <div class="font-bold text-zinc-900">Diploma in Architecture</div>
+                                        <div class="font-medium">Singapore Polytechnic // 2025 - Present</div>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-zinc-900">O levels</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <h3 class="text-sm font-mono tracking-[0.25em] uppercase font-bold text-zinc-900 border-b border-zinc-200 pb-1.5">
+                                    EXPERIENCE
+                                </h3>
+                                <div class="space-y-4 text-xs lg:text-sm font-sans text-zinc-600">
+                                    <div>
+                                        <div class="font-bold text-zinc-900">Academic Studio Projects</div>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-zinc-900">Architecture Training Centre</div>
+                                        <div class="font-medium">Century Art & Science Institute</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-3 col-span-2">
+                                <h3 class="text-sm font-mono tracking-[0.25em] uppercase font-bold text-zinc-900 border-b border-zinc-200 pb-1.5">
+                                    SOFTWARE SKILLS
+                                </h3>
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-3 font-mono text-sm lg:text-base text-zinc-600 font-bold uppercase tracking-wider pt-2">
+                                    <div>Revit</div>
+                                    <div>Photoshop</div>
+                                    <div>V-Ray</div>
+                                    <div>SketchUp</div>
+                                    <div>Rhino</div>
+                                    <div>PowerPoint</div>
+                                    <div>Canva</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="slide-sketches-left" class="w-full reveal-element">
+    <div class="portfolio-page p-0 flex flex-row items-stretch justify-between">
+        <div class="w-[30%] h-full flex flex-col justify-between p-12 relative z-10 bg-white">
+            <div class="space-y-4">
+                <h2 class="text-3xl font-heading uppercase tracking-widest text-black font-light leading-tight">Sketches Collection</h2>
+                <div class="h-[2px] bg-black w-14"></div>
+            </div>
+            
+        </div>
+
+        <div class="w-[70%] h-full relative overflow-hidden bg-zinc-50 flex items-center justify-center p-12">
+            <div class="w-full h-full overflow-hidden flex flex-col items-center justify-center bg-white hover:shadow-2xl transition-shadow duration-300">
+                <div class="w-full h-full overflow-hidden flex items-center justify-center">
+                    <img src="image/Untitled-1.png" alt="Landscape pathway" class="w-full h-full object-contain">
+                </div>
+                <p class="text-sm font-medium text-zinc-500 py-4 font-mono uppercase tracking-widest">Landscape pathway</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="slide-new-pic-holders" class="w-full reveal-element">
+            <div class="portfolio-page p-12 bg-zinc-50">
+                <div class="grid grid-cols-3 grid-rows-2 gap-6 w-full h-full">
+                    
+                    <div class="col-start-1 row-start-1 row-span-2 w-full h-full overflow-hidden flex flex-col items-center justify-center bg-white hover:shadow-2xl transition-shadow duration-300 p-3">
+                        <div class="w-full flex-1 overflow-hidden flex items-center justify-center">
+                            <img src="image/vertical content image.jpg" class="w-full h-full object-contain" alt="Ascending houses">
+                        </div>
+                        <p class="text-sm font-medium text-zinc-500 mt-2 font-mono uppercase tracking-widest">Ascending houses</p>
+                    </div>
+                    
+                    <div class="col-start-2 row-start-1 w-full h-full overflow-hidden flex flex-col items-center justify-center bg-white hover:shadow-2xl transition-shadow duration-300 p-3">
+                        <div class="w-full flex-1 overflow-hidden flex items-center justify-center">
+                            <img src="image/inter color.jpg" class="w-full h-full object-contain" alt="interior cafe">
+                        </div>
+                        <p class="text-sm font-medium text-zinc-500 mt-2 font-mono uppercase tracking-widest">interior cafe</p>
+                    </div>
+                    
+                    <div class="col-start-2 row-start-2 w-full h-full overflow-hidden flex flex-col items-center justify-center bg-white hover:shadow-2xl transition-shadow duration-300 p-3">
+                        <div class="w-full flex-1 overflow-hidden flex items-center justify-center">
+                            <img src="image/iso sketch.jpg" class="w-full h-full object-contain" alt="iso parti diagram">
+                        </div>
+                        <p class="text-sm font-medium text-zinc-500 mt-2 font-mono uppercase tracking-widest">iso parti diagram</p>
+                    </div>
+                    
+                    <div class="col-start-3 row-start-1 row-span-2 w-full h-full overflow-hidden flex flex-col items-center justify-center bg-white hover:shadow-2xl transition-shadow duration-300 p-3">
+                        <div class="w-full flex-1 overflow-hidden flex items-center justify-center">
+                            <img src="image/wonky image.jpg" class="w-full h-full object-contain" alt="Mall Valley">
+                        </div>
+                        <p class="text-sm font-medium text-zinc-500 mt-2 font-mono uppercase tracking-widest">Mall Valley</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+
+        <section id="slide-4" class="w-full reveal-element"> 
+    <div class="portfolio-page flex flex-row items-stretch justify-between">
+        <div class="w-[33%] h-full flex flex-col justify-start p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white">
+            <div class="space-y-8">
+                <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">pavilion</h2>
+                
+                <div class="h-[2px] bg-black w-14"></div>
+                
+                <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
+                    Analyzing structural boundary limitations, programmatic response modules, and light illumination angles.
+                </p>
+            </div>
+        </div>
+        
+        <div class="w-[67%] h-full p-12 bg-zinc-50 flex items-center justify-center">
+            <div class="w-full h-full bg-white flex items-center justify-center shadow-lg overflow-hidden">
+                <img src="image/photo_2026-06-17_13-32-08.jpg" 
+                     alt="Pavilion Conceptual Render Frame" 
+                     class="w-full h-full object-contain">
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="slide-sketches-right" class="w-full reveal-element">
+    <div class="portfolio-page p-12 flex items-stretch gap-6">
+        
+        <div class="w-[25%] flex flex-col justify-between py-2">
+            <div class="space-y-6">
+                <h3 class="text-2xl font-heading uppercase tracking-widest text-zinc-900 font-light">Physical Model Iterations</h3>
+                <div class="h-[2px] bg-black w-14"></div>
+                <p class="text-xs text-zinc-500 font-sans leading-relaxed">
+                    Explanatory physical model studies detailing roof joint configurations, timber framing alignments, and surface materials. The wood strip mockups demonstrate stability under structural loads and explore spatial permeability through light and shadow articulation.
+                </p>
+            </div>
+            
+        </div>
+
+        <div class="w-[50%] grid grid-cols-2 gap-4">
+            <div class="aspect-square bg-zinc-100/20 overflow-hidden">
+                <img src="image/seat photo.png" class="w-full h-full object-cover">
+            </div>
+            <div class="aspect-square bg-zinc-100/20 overflow-hidden">
+                <img src="image/layvey.png" class="w-full h-full object-cover">
+            </div>
+            <div class="aspect-square bg-zinc-100/20 overflow-hidden">
+                <img src="image/triangle roof.png" class="w-full h-full object-cover">
+            </div>
+            <div class="aspect-square bg-zinc-100/20 overflow-hidden">
+                <img src="image/block roof model.png" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        <div class="w-[25%] flex flex-col gap-4">
+            <div class="flex-1 flex gap-4 min-h-0">
+                <div class="flex-1 bg-zinc-100/20 overflow-hidden p-2 flex items-center justify-center">
+                    <img src="image/partiimage1.png" class="max-h-full w-auto object-contain">
+                </div>
+                
+            </div>
+            <div class="h-1/2 bg-zinc-100/20 overflow-hidden p-2 flex items-center justify-center">
+                <img src="image/partiimage3.jpg" class="max-h-full w-auto object-contain">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+        <section id="slide-7" class="w-full reveal-element">
+            <div class="portfolio-page p-0 flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-between p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white border-r border-zinc-100">
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">Shelter Project</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        
+                        <div class="space-y-4 pt-2">
+                            <div>
+                                <h3 class="text-xs font-heading tracking-[0.15em] uppercase font-bold text-zinc-900">design issue</h3>
+                                <p class="text-xs text-zinc-500 font-sans leading-relaxed mt-1">
+                                    Addressing urban friction lines, microclimate bottlenecks, and site elevation constraints.
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-xs font-heading tracking-[0.15em] uppercase font-bold text-zinc-900">design intent</h3>
+                                <p class="text-xs text-zinc-500 font-sans leading-relaxed mt-1">
+                                    Creating continuous, unhindered pathways that stitch landscape topography with newly formed public pavilions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="w-[67%] h-full p-12 lg:p-16 flex items-center justify-center">
+                    <div class="grid grid-cols-2 gap-5 w-full h-full">
+                        <div class="relative overflow-hidden group flex items-center justify-center">
+                            <img src="image/photo_2026-06-18_13-13-03.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Iter 01">
+                            <div class="absolute top-2 left-2 bg-white/95 px-2 py-0.5 font-mono text-[9px] text-zinc-800 uppercase tracking-widest font-bold border border-zinc-200">Iter 01</div>
+                        </div>
+                        <div class="relative overflow-hidden group flex items-center justify-center">
+                            <img src="image/photo_2026-06-18_13-13-09.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Iter 02">
+                            <div class="absolute top-2 left-2 bg-white/95 px-2 py-0.5 font-mono text-[9px] text-zinc-800 uppercase tracking-widest font-bold border border-zinc-200">Iter 02</div>
+                        </div>
+                        <div class="relative overflow-hidden group flex items-center justify-center">
+                            <img src="image/top view.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Top View">
+                            <div class="absolute top-2 left-2 bg-white/95 px-2 py-0.5 font-mono text-[9px] text-zinc-800 uppercase tracking-widest font-bold border border-zinc-200">Top View</div>
+                        </div>
+                        <div class="relative overflow-hidden group flex items-center justify-center">
+                            <img src="image/3d house.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="3D Model">
+                            <div class="absolute top-2 left-2 bg-white/95 px-2 py-0.5 font-mono text-[9px] text-zinc-800 uppercase tracking-widest font-bold border border-zinc-200">3D Model</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="slide-8" class="w-full reveal-element">
+            <div class="portfolio-page p-0 flex items-center justify-center overflow-hidden">
+                <img src="image/shelter ppt board.png" alt="Shelter Project Presentation Board" class="block w-full h-full object-contain">
+            </div>
+        </section>
+
+
+        <section id="slide-9" class="w-full reveal-element">
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-between p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white border-r border-zinc-100">
+                    <div class="space-y-8">
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">Revit solely</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
+                            Dedicated architectural modeling utilising Autodesk Revit. Showcasing BIM component formulation, parametric family definitions, structural grid mapping, and automated construction documentation layouts.
+                        </p>
+                    </div>
+                    <div class="font-mono text-[9px] uppercase tracking-widest text-zinc-400">
+                        BIM Plate Ref // SP-R04.1
+                    </div>
+                </div>
+                <div class="w-[67%] h-full relative overflow-hidden">
+                    <img src="image/3d house.jpg" alt="Revit Architectural 3D Model Render" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+
+        <section id="slide-10" class="w-full reveal-element">
+            <div class="portfolio-page flex flex-row items-stretch justify-between">
+                <div class="w-[33%] h-full flex flex-col justify-between p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white border-r border-zinc-100">
+                    <div class="space-y-8">
+                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">future plates</h2>
+                        <div class="h-[2px] bg-black w-14"></div>
+                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
+                            Upcoming project documentation plates, including passive climate strategy mappings, envelope analysis, and site elevation constraints.
+                        </p>
+                    </div>
+                    <div class="font-mono text-[9px] uppercase tracking-widest text-zinc-400">
+                        Placeholder Plate Ref // SP-P05.1
+                    </div>
+                </div>
+                <div class="w-[67%] h-full p-12 lg:p-16 flex items-center justify-center">
+                    <div class="grid grid-cols-2 gap-5 w-full h-full flex items-center justify-center bg-zinc-50">
+                        <div class="rounded-xs flex items-center justify-center p-8">
+                            <span class="font-mono text-xs text-zinc-400 tracking-wider uppercase font-bold">Plate Placeholder 01</span>
+                        </div>
+                        <div class="rounded-xs flex items-center justify-center p-8">
+                            <span class="font-mono text-xs text-zinc-400 tracking-wider uppercase font-bold">Plate Placeholder 02</span>
+                        </div>
+                        <div class="rounded-xs flex items-center justify-center p-8">
+                            <span class="font-mono text-xs text-zinc-400 tracking-wider uppercase font-bold">Plate Placeholder 03</span>
+                        </div>
+                        <div class="rounded-xs flex items-center justify-center p-8">
+                            <span class="font-mono text-xs text-zinc-400 tracking-wider uppercase font-bold">Plate Placeholder 04</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="w-full border-t border-zinc-200 bg-white py-14 text-center text-zinc-400 no-print">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col items-center justify-between gap-6 sm:flex-row">
+            <div class="flex flex-col items-start font-mono text-xs tracking-widest uppercase space-y-1.5 font-bold">
+                <span>Leo Aung Khant Thaw Portfolio Terminal</span>
+                <span class="text-zinc-300">&copy; 2026 Studio Index Layout</span>
+    </footer>
+
+    <script>
+
+        
+        const cursorH = document.getElementById('autocad-cursor-h');
+        const cursorV = document.getElementById('autocad-cursor-v');
+        const cursorBox = document.getElementById('autocad-cursor-box');
+        const selectBox = document.getElementById('autocad-select-box');
+        const body = document.body;
+
+        // Slide 2 Dynamic Background Hover Effect
+        const slide2Bg = document.getElementById('slide-2-bg');
+        const contentBookmarks = document.querySelectorAll('.content-bookmark');
+
+        contentBookmarks.forEach(bookmark => {
+            bookmark.addEventListener('mouseenter', () => {
+                const hoverColor = bookmark.getAttribute('data-hover-bg');
+                if(hoverColor && slide2Bg) {
+                    slide2Bg.style.backgroundColor = hoverColor;
+                }
+            });
+            bookmark.addEventListener('mouseleave', () => {
+                if(slide2Bg) {
+                    slide2Bg.style.backgroundColor = '#ffffff';
+                }
+            });
+        });
+
+        let isDragging = false;
+        let startX = 0;
+        let startY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            cursorH.style.left = mouseX + 'px';
+            cursorH.style.top = mouseY + 'px';
+
+            cursorV.style.left = mouseX + 'px';
+            cursorV.style.top = mouseY + 'px';
+
+            cursorBox.style.left = mouseX + 'px';
+            cursorBox.style.top = mouseY + 'px';
+
+            if (isDragging) {
+                const currentX = mouseX;
+                const currentY = mouseY;
+
+                const left = Math.min(startX, currentX);
+                const top = Math.min(startY, currentY);
+                const width = Math.abs(startX - currentX);
+                const height = Math.abs(startY - currentY);
+
+                if (width > 3 || height > 3) {
+                    selectBox.style.left = left + 'px';
+                    selectBox.style.top = top + 'px';
+                    selectBox.style.width = width + 'px';
+                    selectBox.style.height = height + 'px';
+                    selectBox.style.display = 'block';
+
+                    if (currentX >= startX) {
+                        selectBox.style.backgroundColor = 'rgba(0, 119, 255, 0.15)';
+                        selectBox.style.border = '1px solid rgb(0, 119, 255)';
+                    } else {
+                        selectBox.style.backgroundColor = 'rgba(0, 204, 102, 0.15)';
+                        selectBox.style.border = '1px dashed rgb(0, 204, 102)';
+                    }
+                }
+            }
+        });
+
+        window.addEventListener('mousedown', (e) => {
+            if (e.target.closest('a, button, [role="button"]')) {
+                return;
+            }
+            if (e.button === 0) {
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+            }
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+            selectBox.style.display = 'none';
+        });
+
+        document.querySelectorAll('a, button, [role="button"]').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursorH.style.width = '64px';
+                cursorH.style.backgroundColor = 'rgba(0, 119, 255, 0.8)';
+                cursorV.style.height = '64px';
+                cursorV.style.backgroundColor = 'rgba(0, 119, 255, 0.8)';
+                cursorBox.style.width = '8px';
+                cursorBox.style.height = '8px';
+                cursorBox.style.borderColor = 'rgb(0, 119, 255)';
+                cursorBox.style.backgroundColor = 'transparent';
+            });
+            element.addEventListener('mouseleave', () => {
+                cursorH.style.width = '44px';
+                cursorH.style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
+                cursorV.style.height = '44px';
+                cursorV.style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
+                cursorBox.style.width = '6px';
+                cursorBox.style.height = '6px';
+                cursorBox.style.borderColor = 'transparent';
+                cursorBox.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 120) {
+                body.classList.add('scrolled-past-cover');
+            } else {
+                body.classList.remove('scrolled-past-cover');
+            }
+        });
+        document.querySelectorAll('.reveal-line').forEach((element) => {
+    const split = new SplitType(element, { types: 'lines' });
+    split.lines.forEach((line, index) => {
+        line.style.transitionDelay = `${index * 0.1}s`;
+    });
+});
+
+document.querySelectorAll('.reveal-element').forEach(element => {
+    element.classList.add('is-visible');
+});
+        
+    </script>
+
+</body>
+</html>
