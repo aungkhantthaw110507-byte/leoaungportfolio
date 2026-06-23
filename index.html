@@ -227,7 +227,7 @@
         width: 420mm !important;
         height: 297mm !important;
         margin: 0 !important;
-        padding: 12mm !important; /* Uniform print safe-zone */
+        padding: 8cqh !important; /* Uniform print safe-zone */
         page-break-after: always !important;
         break-after: page !important;
         page-break-inside: avoid !important;
@@ -368,16 +368,18 @@
                     </a>
 
                     <a href="#slide-7" class="content-bookmark group flex flex-col h-full cursor-none" data-hover-bg="#e3e8e6">
-                        <div class="w-full h-full relative overflow-hidden mb-5 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-xl border border-zinc-200/50 bg-[#c4c6b5] transition-colors duration-700">
+                        <div class="w-full h-full relative overflow-hidden bg-zinc-100 mb-5 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-xl border border-zinc-200/50">
+                            <img src="image/plan render.jpg" alt="Shelter Project" class="w-full h-full object-cover object-center transition-all duration-700">
                         </div>
                         <div class="text-center space-y-1">
                             <span class="font-mono text-zinc-400 font-bold text-xl block transition-colors duration-300 group-hover:text-black">03</span>
-                            <span class="text-zinc-900 tracking-[0.15em] font-medium uppercase text-[10px] lg:text-xs">Sustainable Shelter</span>
+                            <span class="text-zinc-900 tracking-[0.15em] font-medium uppercase text-[10px] lg:text-xs">Shelter Project</span>
                         </div>
                     </a>
 
                     <a href="#slide-9" class="content-bookmark group flex flex-col h-full cursor-none" data-hover-bg="#e1eaf2">
-                        <div class="w-full h-full relative overflow-hidden mb-5 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-xl border border-zinc-200/50 bg-[#d0deeb] transition-colors duration-700">
+                        <div class="w-full h-full relative overflow-hidden bg-zinc-100 mb-5 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-xl border border-zinc-200/50">
+                            <img src="image/iso sketch render.jpg" alt="3D Software Exercises" class="w-full h-full object-cover object-center transition-all duration-700">
                         </div>
                         <div class="text-center space-y-1">
                             <span class="font-mono text-zinc-400 font-bold text-xl block transition-colors duration-300 group-hover:text-black">04</span>
@@ -608,69 +610,59 @@
     </div>
 </section>
 
-
-        <section id="slide-shelter-cover" class="w-full reveal-element">
-            <div class="portfolio-page relative flex flex-col items-center justify-center overflow-hidden">
-                <img src="image/model front view.jpg" alt="Shelter Model Front View" class="absolute inset-0 w-full h-full object-cover z-0">
+<section id="slide-model-front" class="w-full reveal-element">
+            <div class="portfolio-page relative overflow-hidden bg-zinc-900">
+                <img src="image/model front view.jpg" alt="Model Front View" class="absolute inset-0 w-full h-full object-cover saturate-50 opacity-90">
                 
-                <div class="absolute inset-0 bg-black/30 z-0"></div>
-                
-                <div class="relative z-10 flex flex-col items-center text-center space-y-6 p-12">
-                    <h2 class="text-6xl md:text-8xl font-heading uppercase tracking-[0.2em] text-white font-light leading-none drop-shadow-lg">
-                        Shelter
-                    </h2>
-                    <div class="h-[2px] bg-white w-16 shadow-lg"></div>
-                    <p class="text-xs md:text-sm text-zinc-100 font-mono uppercase tracking-[0.25em] font-medium drop-shadow-md">
-                        Architectural Concept & Form Exploration
-                    </p>
+                <div class="absolute top-12 left-12 z-10 bg-zinc-800/90 backdrop-blur-sm px-10 py-6 border border-zinc-600 shadow-2xl text-left">
+                    <h2 class="text-3xl md:text-4xl font-heading uppercase tracking-widest text-white font-light">Shelter Project</h2>
+                    <div class="h-[2px] bg-white w-14 mt-4"></div>
                 </div>
             </div>
         </section>
 
-        <section id="slide-shelter-gallery" class="w-full reveal-element h-screen">
-            <div class="portfolio-page p-6 md:p-12 w-full h-full flex flex-col items-center justify-center">
+<section id="slide-sketches-right" class="w-full h-screen bg-white">
+    <div class="w-full h-full flex items-center justify-center p-4 box-border">
+        
+        <div class="w-[85%] grid grid-cols-2 gap-8">
+            
+            <div class="relative bg-zinc-100/20 overflow-hidden group flex items-center justify-center aspect-[3/2] transition-all duration-500 hover:scale-[1.02] hover:shadow-xl cursor-pointer">
+                <img src="image/plan render.jpg" class="w-full h-full object-cover">
                 
-                <div class="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 w-full max-w-6xl h-[75vh]">
-                    
-                    <div class="flex flex-col gap-8 h-full">
-                        <div class="relative bg-white overflow-hidden group flex items-center justify-center flex-1 p-2 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:z-10 cursor-pointer border border-zinc-200 shadow-sm">
-                            <img src="image/plan render.jpg" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[0.97] group-hover:opacity-60">
-                            
-                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/95 px-6 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out shadow-xl border border-zinc-200 pointer-events-none scale-90 group-hover:scale-100">
-                                Plan Render
-                            </div>
-                        </div>
-
-                        <div class="relative bg-white overflow-hidden group flex items-center justify-center flex-1 p-2 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:z-10 cursor-pointer border border-zinc-200 shadow-sm">
-                            <img src="image/elevation render.jpg" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[0.97] group-hover:opacity-60">
-                            
-                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/95 px-6 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out shadow-xl border border-zinc-200 pointer-events-none scale-90 group-hover:scale-100">
-                                Elevation Render
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col gap-8 h-full">
-                        <div class="relative bg-white overflow-hidden group flex items-center justify-center flex-1 p-2 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:z-10 cursor-pointer border border-zinc-200 shadow-sm">
-                            <img src="image/model render.jpg" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[0.97] group-hover:opacity-60">
-                            
-                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/95 px-6 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out shadow-xl border border-zinc-200 pointer-events-none scale-90 group-hover:scale-100">
-                                Model Render
-                            </div>
-                        </div>
-
-                        <div class="relative bg-white overflow-hidden group flex items-center justify-center flex-1 p-2 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:z-10 cursor-pointer border border-zinc-200 shadow-sm">
-                            <img src="image/model render 2.jpg" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[0.97] group-hover:opacity-60">
-                            
-                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/95 px-6 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out shadow-xl border border-zinc-200 pointer-events-none scale-90 group-hover:scale-100">
-                                Model Render 2
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="absolute bottom-0 left-0 w-full bg-zinc-200/95 px-3 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out border-t border-zinc-300">
+                    Floor Plan
                 </div>
             </div>
-        </section>
+            
+            <div class="relative bg-zinc-100/20 overflow-hidden group flex items-center justify-center aspect-[3/2] transition-all duration-500 hover:scale-[1.02] hover:shadow-xl cursor-pointer">
+                <img src="image/model render.jpeg" class="w-full h-full object-cover">
+                
+                <div class="absolute bottom-0 left-0 w-full bg-zinc-200/95 px-3 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out border-t border-zinc-300">
+                    Exterior Render
+                </div>
+            </div>
+            
+            <div class="relative bg-zinc-50 overflow-hidden group flex items-center justify-center aspect-[3/2] p-2 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl cursor-pointer">
+                <img src="image/elevation render.jpg" class="max-h-full w-auto object-contain">
+                
+                <div class="absolute bottom-0 left-0 w-full bg-zinc-200/95 px-3 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out border-t border-zinc-300">
+                    Elevation Render
+                </div>
+            </div>
+            
+            <div class="relative bg-zinc-100/20 overflow-hidden group flex items-center justify-center aspect-[3/2] transition-all duration-500 hover:scale-[1.02] hover:shadow-xl cursor-pointer">
+                <img src="image/model render 2.jpeg" class="w-full h-full object-cover">
+                
+                <div class="absolute bottom-0 left-0 w-full bg-zinc-200/95 px-3 py-3 text-center font-mono text-[13px] text-zinc-900 uppercase tracking-widest font-bold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out border-t border-zinc-300">
+                    Interior Render
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+        
         
         <section id="slide-7" class="w-full reveal-element">
             <div class="portfolio-page p-0 flex flex-row items-stretch justify-between">
@@ -728,54 +720,60 @@
         </section>
 
 
-        <section id="slide-9" class="w-full reveal-element">
+        <section id="slide-10" class="w-full reveal-element">
             <div class="portfolio-page flex flex-row items-stretch justify-between">
-                <div class="w-[33%] h-full flex flex-col justify-between p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white border-r border-zinc-100">
+                <div class="w-[25%] h-full flex flex-col justify-between p-10 pt-16 relative z-10 bg-white border-r border-zinc-100">
                     <div class="space-y-8">
-                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">Revit solely</h2>
+                        <h2 class="text-3xl font-heading uppercase tracking-widest text-black font-light leading-tight">Revit</h2>
                         <div class="h-[2px] bg-black w-14"></div>
-                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
-                            Dedicated architectural modeling utilising Autodesk Revit. Showcasing BIM component formulation, parametric family definitions, structural grid mapping, and automated construction documentation layouts.
+                        <p class="text-xs text-zinc-500 font-sans font-normal leading-relaxed">
+                            3D modeling and documentation utilizing Revit.
                         </p>
                     </div>
-                    <div class="font-mono text-[9px] uppercase tracking-widest text-zinc-400">
-                        BIM Plate Ref // SP-R04.1
-                    </div>
                 </div>
-                <div class="w-[67%] h-full relative overflow-hidden">
-                    <img src="image/3d house.jpg" alt="Revit Architectural 3D Model Render" class="w-full h-full object-cover">
+                <div class="w-[75%] h-full p-10 flex items-center justify-center">
+                    <div class="grid grid-cols-2 grid-rows-2 gap-6 w-full h-full">
+                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
+                            <img src="image/revit 3d apt.jpg" alt="Revit 3D Apt" class="w-full h-full object-contain">
+                        </div>
+                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
+                            <img src="image/revit 3d unshaded.jpg" alt="Revit 3D Unshaded" class="w-full h-full object-contain">
+                        </div>
+                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
+                            <img src="image/revit plan.jpg" alt="Revit Plan" class="w-full h-full object-contain">
+                        </div>
+                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
+                            <img src="image/revit render 1.png" alt="Revit Render 1" class="w-full h-full object-contain">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-
-        <section id="slide-10" class="w-full reveal-element">
+        <section id="slide-11" class="w-full reveal-element">
             <div class="portfolio-page flex flex-row items-stretch justify-between">
-                <div class="w-[33%] h-full flex flex-col justify-between p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white border-r border-zinc-100">
+                <div class="w-[25%] h-full flex flex-col justify-between p-10 pt-16 relative z-10 bg-white border-r border-zinc-100">
                     <div class="space-y-8">
-                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">future plates</h2>
+                        <h2 class="text-3xl font-heading uppercase tracking-widest text-black font-light leading-tight">Sketchup / Render</h2>
                         <div class="h-[2px] bg-black w-14"></div>
-                        <p class="text-xs md:text-sm text-zinc-500 font-sans font-normal leading-relaxed pt-2">
-                            Upcoming project documentation plates, including passive climate strategy mappings, envelope analysis, and site elevation constraints.
+                        <p class="text-xs text-zinc-500 font-sans font-normal leading-relaxed">
+                            Conceptual 3D modeling and visualization studies.
                         </p>
                     </div>
-                    <div class="font-mono text-[9px] uppercase tracking-widest text-zinc-400">
-                        Placeholder Plate Ref // SP-P05.1
-                    </div>
                 </div>
-                <div class="w-[67%] h-full p-12 lg:p-16 flex items-center justify-center">
-                    <div class="grid grid-cols-2 gap-5 w-full h-full flex items-center justify-center bg-zinc-50">
-                        <div class="rounded-xs flex items-center justify-center p-8">
-                            <span class="font-mono text-xs text-zinc-400 tracking-wider uppercase font-bold">Plate Placeholder 01</span>
+                <div class="w-[75%] h-full p-10 flex items-center justify-center">
+                    <div class="grid grid-cols-2 grid-rows-2 gap-6 w-full h-full">
+                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
+                            <img src="image/iso sketch render.jpg" alt="Iso Sketch Render" class="w-full h-full object-contain">
                         </div>
-                        <div class="rounded-xs flex items-center justify-center p-8">
-                            <span class="font-mono text-xs text-zinc-400 tracking-wider uppercase font-bold">Plate Placeholder 02</span>
+                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
+                            <img src="image/sketchup plan.jpg" alt="Sketchup Plan" class="w-full h-full object-contain">
                         </div>
-                        <div class="rounded-xs flex items-center justify-center p-8">
-                            <span class="font-mono text-xs text-zinc-400 tracking-wider uppercase font-bold">Plate Placeholder 03</span>
+                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
+                            <img src="image/sketchup 1.jpg" alt="Sketchup 1" class="w-full h-full object-contain">
                         </div>
-                        <div class="rounded-xs flex items-center justify-center p-8">
-                            <span class="font-mono text-xs text-zinc-400 tracking-wider uppercase font-bold">Plate Placeholder 04</span>
+                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
+                            <img src="image/sketchup render.png" alt="Sketchup Render" class="w-full h-full object-contain">
                         </div>
                     </div>
                 </div>
