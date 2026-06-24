@@ -198,8 +198,8 @@
         margin: 0;
     }
 
-    /* 2. Strip Global Margins and Force Colors */
-    body {
+    /* 2. Global Resets */
+    body, html {
         margin: 0 !important;
         padding: 0 !important;
         background: white !important;
@@ -207,27 +207,27 @@
         print-color-adjust: exact;
     }
 
-    /* 3. Hide Unnecessary UI */
-    #ribbon-nav, header, footer, .no-print, 
+    /* 3. Hide UI Elements */
+    #ribbon-nav, header, footer, .no-print, nav,
     #autocad-cursor-h, #autocad-cursor-v, #autocad-cursor-box, #autocad-select-box {
         display: none !important;
     }
 
-    /* 4. Neutralize the <main> container */
+    /* 4. Reset Main Container */
     main {
         margin: 0 !important;
         padding: 0 !important;
-    }
-    main > * + * {
-        margin-top: 0 !important;
+        display: block !important;
     }
 
-    /* 5. Force sections to exact A3 size with internal padding */
+    /* 5. Force ALL sections to exact A3 size WITH SUITABLE GLOBAL PADDING */
     section {
         width: 420mm !important;
         height: 297mm !important;
+        min-height: 297mm !important;
+        max-height: 297mm !important;
         margin: 0 !important;
-        padding: 8cqh !important; /* Uniform print safe-zone */
+        padding: 15mm !important; /* Universal 15mm safe-zone for every page */
         page-break-after: always !important;
         break-after: page !important;
         page-break-inside: avoid !important;
@@ -237,33 +237,54 @@
         box-sizing: border-box !important;
     }
 
-    /* 6. Clean up portfolio containers so they fill the padded section perfectly */
+    /* 6. Strip padding from all inner wrappers to override Tailwind */
+    section > div, 
     .portfolio-page {
         width: 100% !important;
         height: 100% !important;
-        max-height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important; /* Inner content goes right up to the 15mm section border */
         box-shadow: none !important;
         border: none !important;
-        margin: 0 !important;
-        padding: 0 !important; 
-        page-break-inside: avoid !important;
+        box-sizing: border-box !important;
+        border-radius: 0 !important;
     }
 
-    /* 7. Cover Page Specific Fixes (Fixes the overlapping text issue) */
-    #slide-1 {
-        padding: 24mm !important; /* Give the cover slightly more breathing room */
-    }
+    /* 7. Fix Font Scaling on Cover Page (Slide 1) */
     #slide-1 h1 {
-        font-size: 85pt !important; /* Lock VW to static PT to prevent stretching */
+        font-size: 85pt !important;
         line-height: 1 !important;
     }
     #slide-1 .text-xl {
         font-size: 20pt !important;
     }
-
-    /* 8. Reset specific slide exceptions that ruin print sizing */
+    
+    /* 8. Prevent aspect-ratio issues on grids */
     #slide-8 .portfolio-page {
         aspect-ratio: auto !important; 
+    }
+
+    /* 9. Shrink Index Page (Slide 2) Content */
+    #slide-2 h2 {
+        font-size: 45pt !important;
+        margin-bottom: 20px !important;
+    }
+    #slide-2 ul, 
+    #slide-2 li, 
+    #slide-2 a {
+        font-size: 14pt !important; 
+        line-height: 1.4 !important;
+    }
+    #slide-2 li {
+        margin-bottom: 10px !important; 
+    }
+    #slide-2 p, 
+    #slide-2 span, 
+    #slide-2 div.text-sm {
+        font-size: 12pt !important; 
+    }
+    #slide-2 .grid {
+        gap: 24px !important; 
     }
 }
 </style>
@@ -664,53 +685,6 @@
 
         
         
-        <section id="slide-7" class="w-full reveal-element">
-            <div class="portfolio-page p-0 flex flex-row items-stretch justify-between">
-                <div class="w-[33%] h-full flex flex-col justify-between p-12 md:p-16 pt-16 md:pt-24 relative z-10 bg-white border-r border-zinc-100">
-                    <div class="space-y-6">
-                        <h2 class="text-4xl font-heading uppercase tracking-widest text-black font-light leading-tight">Shelter Project</h2>
-                        <div class="h-[2px] bg-black w-14"></div>
-                        
-                        <div class="space-y-4 pt-2">
-                            <div>
-                                <h3 class="text-xs font-heading tracking-[0.15em] uppercase font-bold text-zinc-900">design issue</h3>
-                                <p class="text-xs text-zinc-500 font-sans leading-relaxed mt-1">
-                                    Addressing urban friction lines, microclimate bottlenecks, and site elevation constraints.
-                                </p>
-                            </div>
-                            
-                            <div>
-                                <h3 class="text-xs font-heading tracking-[0.15em] uppercase font-bold text-zinc-900">design intent</h3>
-                                <p class="text-xs text-zinc-500 font-sans leading-relaxed mt-1">
-                                    Creating continuous, unhindered pathways that stitch landscape topography with newly formed public pavilions.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="w-[67%] h-full p-12 lg:p-16 flex items-center justify-center">
-                    <div class="grid grid-cols-2 gap-5 w-full h-full">
-                        <div class="relative overflow-hidden group flex items-center justify-center">
-                            <img src="image/photo_2026-06-18_13-13-03.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Iter 01">
-                            <div class="absolute top-2 left-2 bg-white/95 px-2 py-0.5 font-mono text-[9px] text-zinc-800 uppercase tracking-widest font-bold border border-zinc-200">Iter 01</div>
-                        </div>
-                        <div class="relative overflow-hidden group flex items-center justify-center">
-                            <img src="image/photo_2026-06-18_13-13-09.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Iter 02">
-                            <div class="absolute top-2 left-2 bg-white/95 px-2 py-0.5 font-mono text-[9px] text-zinc-800 uppercase tracking-widest font-bold border border-zinc-200">Iter 02</div>
-                        </div>
-                        <div class="relative overflow-hidden group flex items-center justify-center">
-                            <img src="image/top view.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Top View">
-                            <div class="absolute top-2 left-2 bg-white/95 px-2 py-0.5 font-mono text-[9px] text-zinc-800 uppercase tracking-widest font-bold border border-zinc-200">Top View</div>
-                        </div>
-                        <div class="relative overflow-hidden group flex items-center justify-center">
-                            <img src="image/3d house.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="3D Model">
-                            <div class="absolute top-2 left-2 bg-white/95 px-2 py-0.5 font-mono text-[9px] text-zinc-800 uppercase tracking-widest font-bold border border-zinc-200">3D Model</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
 
         <section id="slide-8" class="w-full reveal-element">
@@ -721,65 +695,60 @@
 
 
         <section id="slide-10" class="w-full reveal-element">
-            <div class="portfolio-page flex flex-row items-stretch justify-between">
-                <div class="w-[25%] h-full flex flex-col justify-between p-10 pt-16 relative z-10 bg-white border-r border-zinc-100">
-                    <div class="space-y-8">
-                        <h2 class="text-3xl font-heading uppercase tracking-widest text-black font-light leading-tight">Revit</h2>
-                        <div class="h-[2px] bg-black w-14"></div>
-                        <p class="text-xs text-zinc-500 font-sans font-normal leading-relaxed">
-                            3D modeling and documentation utilizing Revit.
-                        </p>
-                    </div>
+    <div class="portfolio-page flex flex-row items-stretch justify-between">
+        <div class="w-[25%] h-full flex flex-col justify-between p-10 pt-16 relative z-10 bg-white border-r border-zinc-100">
+            <div class="space-y-8">
+                <h2 class="text-3xl font-heading uppercase tracking-widest text-black font-light leading-tight">Revit / BIM</h2>
+                <div class="h-[2px] bg-black w-14"></div>
+                
+            </div>
+        </div>
+        <div class="w-[75%] h-full p-10 flex items-center justify-center">
+            <div class="grid grid-cols-2 grid-rows-2 gap-6 w-full h-full">
+                <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2 transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:z-10 cursor-pointer">
+                    <img src="image/revit 3d apt.jpg" alt="Revit 3D Apt" class="w-full h-full object-contain">
                 </div>
-                <div class="w-[75%] h-full p-10 flex items-center justify-center">
-                    <div class="grid grid-cols-2 grid-rows-2 gap-6 w-full h-full">
-                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
-                            <img src="image/revit 3d apt.jpg" alt="Revit 3D Apt" class="w-full h-full object-contain">
-                        </div>
-                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
-                            <img src="image/revit 3d unshaded.jpg" alt="Revit 3D Unshaded" class="w-full h-full object-contain">
-                        </div>
-                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
-                            <img src="image/revit plan.jpg" alt="Revit Plan" class="w-full h-full object-contain">
-                        </div>
-                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
-                            <img src="image/revit render 1.png" alt="Revit Render 1" class="w-full h-full object-contain">
-                        </div>
-                    </div>
+                <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2 transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:z-10 cursor-pointer">
+                    <img src="image/revit 3d unshaded.jpg" alt="Revit 3D Unshaded" class="w-full h-full object-contain">
+                </div>
+                <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2 transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:z-10 cursor-pointer">
+                    <img src="image/revit plan.jpg" alt="Revit Plan" class="w-full h-full object-contain">
+                </div>
+                <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2 transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:z-10 cursor-pointer">
+                    <img src="image/revit render 1.png" alt="Revit Render 1" class="w-full h-full object-contain">
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <section id="slide-11" class="w-full reveal-element">
-            <div class="portfolio-page flex flex-row items-stretch justify-between">
-                <div class="w-[25%] h-full flex flex-col justify-between p-10 pt-16 relative z-10 bg-white border-r border-zinc-100">
-                    <div class="space-y-8">
-                        <h2 class="text-3xl font-heading uppercase tracking-widest text-black font-light leading-tight">Sketchup / Render</h2>
-                        <div class="h-[2px] bg-black w-14"></div>
-                        <p class="text-xs text-zinc-500 font-sans font-normal leading-relaxed">
-                            Conceptual 3D modeling and visualization studies.
-                        </p>
-                    </div>
+<section id="slide-11" class="w-full reveal-element">
+    <div class="portfolio-page flex flex-row items-stretch justify-between">
+        <div class="w-[25%] h-full flex flex-col justify-between p-10 pt-16 relative z-10 bg-white border-r border-zinc-100">
+            <div class="space-y-8">
+                <h2 class="text-3xl font-heading uppercase tracking-widest text-black font-light leading-tight">Sketchup / Render</h2>
+                <div class="h-[2px] bg-black w-14"></div>
+                
+            </div>
+        </div>
+        <div class="w-[75%] h-full p-10 flex items-center justify-center">
+            <div class="grid grid-cols-2 grid-rows-2 gap-6 w-full h-full">
+                <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2 transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:z-10 cursor-pointer">
+                    <img src="image/iso sketch render.jpg" alt="Sketchup Render 1" class="w-full h-full object-contain">
                 </div>
-                <div class="w-[75%] h-full p-10 flex items-center justify-center">
-                    <div class="grid grid-cols-2 grid-rows-2 gap-6 w-full h-full">
-                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
-                            <img src="image/iso sketch render.jpg" alt="Iso Sketch Render" class="w-full h-full object-contain">
-                        </div>
-                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
-                            <img src="image/sketchup plan.jpg" alt="Sketchup Plan" class="w-full h-full object-contain">
-                        </div>
-                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
-                            <img src="image/sketchup 1.jpg" alt="Sketchup 1" class="w-full h-full object-contain">
-                        </div>
-                        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2">
-                            <img src="image/sketchup render.png" alt="Sketchup Render" class="w-full h-full object-contain">
-                        </div>
-                    </div>
+                <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2 transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:z-10 cursor-pointer">
+                    <img src="image/sketchup plan.jpg" alt="Sketchup Render 2" class="w-full h-full object-contain">
+                </div>
+                <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2 transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:z-10 cursor-pointer">
+                    <img src="image/sketchup 1.jpg" alt="Sketchup Render 3" class="w-full h-full object-contain">
+                </div>
+                <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-zinc-100 p-2 transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:z-10 cursor-pointer">
+                    <img src="image/sketchup render.png" alt="Sketchup Render 4" class="w-full h-full object-contain">
                 </div>
             </div>
-        </section>
-
+        </div>
+    </div>
+</section>
     </main>
 
     <footer class="w-full border-t border-zinc-200 bg-white py-14 text-center text-zinc-400 no-print">
